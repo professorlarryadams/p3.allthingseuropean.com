@@ -1,0 +1,209 @@
+/*********************************/
+/*   common styles           */
+/*   last modified:      */
+/*********************************/
+
+/*common to all */
+body {
+	background-color:#CCC;
+	font-family:Arial, Helvetica, sans-serif;
+	font-size:14px;
+	padding:0;
+	margin:0;
+	text-align:center;
+}
+div {padding:0; margin:0;}
+
+.standard {clear:both; width:960px; margin:auto; margin-top: 5px; padding-top:0; text-align:left; background-color:#FFF; border:solid; border-width:1px; border-color:#666; border-bottom-width:3px; border-right-width:3px; box-shadow: 3px 3px 10px #666; position:relative;}
+
+/************
+ containers and sections 
+ ***********/
+.container_12 {width:940px; margin-left:10px; margin-right:10px; padding:0;}
+/* .grid_6 {width:50%; float:left;}*/
+.grid_5 {width:643px; float:left;}
+.grid_4 {width:286px; float:left; margin:0 10px 0 0}
+/* .grid_3 {width:24%; float:left; margin-right:10px}*/
+.grid_2 {width:147px; float:left; margin-right:10px}
+/* .grid_1 {width:32%; float:left; margin-right:10px}*/
+
+.float-right {float:right;}  
+.float-left {float:left;} 
+.clear {clear:both;}
+
+/*container for colorboxes*/
+.container {padding:1em; text-align:left; height:auto;}
+
+
+/************
+USED IN CSC FORMS THAT LARRY CREATED
+
+HTML 5 support - Sets new HTML 5 tags to display:block so browsers know how to render the tags properly.***********/ 
+header, section, footer, aside, nav, article, figure {
+	display:block;
+	float: left;
+	padding: 5px;
+	width: 99%;
+	margin:auto;
+	height: auto;
+}
+
+
+section {
+	background-color: #fff;
+}
+
+/* ~~ The footer ~~ */
+footer {
+	padding: 5px 5px;
+	background:#FC6;
+	width:98%;
+	text-align:center;
+	border:ridge;
+	position: relative;/* this gives IE6 hasLayout to properly clear */
+	clear: both; /* this clear property forces the .container to understand where the columns end and contain them */
+}
+
+/**********
+ text and box alignment 
+ ************/
+.centered {text-align:center; margin-left:auto; margin-right:auto;}
+.right {text-align:right}
+.left {text-align:left}
+.margin_right {margin-right:10px;}
+.margin_left {margin-left:10px;}
+.bottom {vertical-align:bottom}
+.middle {vertical-align:middle}
+.top {vertical-align:top}
+
+/* rounded shadowed boxes  not being used at this time */
+.rounded {border-radius: 10px; box-shadow: 3px 3px 10px #666;}
+
+/*******
+LINKS
+*********/
+/* common to all links */
+a:link {color:#036;}
+a:visited {color:#036;}
+a:hover{color:#036;}
+a:active {color:#036;}
+a:link img {border:hidden; border-width:0px;}
+a:visited img {border:hidden; border-width:0px;}
+img {border:none}
+img map {border:none}
+
+/**********
+ COMMON TEXT STYLES
+ **********/
+/* general text styles */
+h1, h2, h3, h4, h5, h6 {font-family:Georgia, "Times New Roman", Times, serif;}
+h1 {font-size: 1.5em; color:#CC3333;} 
+h2 {font-size: 1.3em; color:#CC3333;} 
+h3 {font-size: 1em; font-weight:bold; color:#CC3333; margin:.5em .5em 0 0;} 
+h4 {font-size: 1em; font-weight:bold; color:#000;} 
+h5 {font-size: .9em; font-variant:small-caps;  color:#000;} 
+h6 {font-size: .9em; font-style:italic; color:#000; margin:0;} 
+p {color:#000;}
+.tall {font-size:1.1em; font-stretch:condensed;}
+
+/***********
+COMMON LIST STYLES
+************/
+ul {
+	padding-left:10px;
+	margin:10px;
+}
+ol {
+	padding-left:10px;
+	margin:10px;
+}
+
+/* pdf lists */
+.pdf_ul {
+	padding-left:12px;
+	margin:0px;
+	list-style-type: none;
+	margin:.5em .5em;
+}
+.pdf_ul li {margin-top:5px}
+.pdf {
+	list-style-type:none;
+	background-image:url(/nmc/images/general/pdficon_12.png);
+	background-repeat:no-repeat;
+	background-position:0px 4px; 
+	padding-left: 16px;
+	text-align:left;
+}
+.pdf_centered {
+	list-style-image:url(/nmc/images/general/pdficon_12.png);
+}
+
+
+
+/********** for home page -- head, main nav, foot ************/
+.skip-navigation {position:absolute; top:1px; visibility:hidden; font-size:0em; line-height:0em; padding:0; margin:0; text-align:left; z-index:-100;}
+#header {padding:0; margin:0; background-color:transparent;}
+#flag {position:absolute; top:0px; left:480px; background-color:transparent; z-index:0;}
+#logo {position:relative; top:0px; left:10px; padding:0px; background-color:transparent; z-index:3;}
+#top_brand {position:absolute; left:145px; top:115px; background-color:transparent;}
+
+#toolbars {position:absolute; top:10px; left:675px; text-align:center; z-index:33; margin:0; width:250px;}
+
+/*********** BETA Test Feedback Button ********/
+.beta {position:absolute; top:40px; right: -25px; background-color:transparent; z-index:10;}
+
+.login {text-align:center; z-index:33; font-family:Arial, Georgia, sans-serif; font-weight:bold; font-size:.9em; margin:0; padding:0; border-collapse:collapse; width:250px; color:#FFFFFF; background-color:transparent;}
+table.login a {color:#FFFFFF}
+
+#nav {background-image:url(/nmc/images/general/banner_nav_2.png); background-repeat:no-repeat; background-color:#003366; background-position:10px; width:100%; height:45px; padding:0; margin:0;  border-top:3px #92A7BC;}
+#navigation {margin:0px; padding:0px; }
+#navigation ul {list-style-type:none; margin:0px; padding:0; font-family: Georgia, "Times New Roman", Times, serif;  font-weight:bold; font-size:1em;}
+#navigation li {float:left; margin:.55em .3em 0 0; padding:.4em 0 .5em 0; }
+#navigation li.current a {background-color:#fff; padding:.4em 1em .4em 1em; 
+/*border-top-left-radius: 10px; border-top-right-radius:10px;*/
+ border:2px solid #92A7BC; border-bottom-width:1px; border-bottom-color:#FFFFFF; font-weight:bold; color:#000; text-decoration:none;}
+
+#navigation li.goto a {color:#FFF; padding:.4em 1em .5em 1em; text-decoration:none;}
+#navigation li.goto a:visited {color:#FFF;}
+#navigation li.goto a:hover {color:#FFF; text-decoration:none; font-weight:bold; background-image:url(/nmc/images/general/banner_nav_highlight.png); background-repeat:repeat-x; background-position:center bottom;}
+
+#content {margin-top:20px}
+
+#footer .divider { background-color:#516b8c; height:20px; width:100%; margin-top:10px;}
+form {margin:0; padding:0;}
+
+#footer {background-color:#FFF; margin:0; width:100%; }
+#footer div{ margin-top:2px; margin-bottom:2px; font-size:x-small;}
+.foot_head {border-bottom:solid #333 1px; font-weight:bold;}
+.foot_head2 {border-bottom:solid #333 1px; font-weight:bold; margin-top:1em;}
+#footer ul {text-align:left; margin:.5em; padding:0; color:#333;}
+#footer ul li {list-style:none; }
+#footer ul li a:link {color:#333;}
+#footer ul li a:visited {color:#333;}
+#footer ul li a:active {color:#333;}
+#footer ul li a:hover {color:#333;}
+
+
+/* ****** used throughout ********/
+.white {color:#FFFFFF;}
+.red {color:#CC3333;}
+.blue {color:#003366;}
+.black {color:#000000;}
+.gray {color:#666666;}
+.bold {font-weight:bold;}
+.italic {font-style:italic;}
+
+
+
+/* used throough out */
+.bg-bdr {background-color:#516b8c; border:1px solid #959fab; border-bottom-width:3px; border-right-width:3px; padding:3px; box-shadow: 3px 3px 10px #666;}
+.bg-bdr div {margin-bottom:10px;}
+
+.small {font-size:11px;}
+
+.hidden, .form-info {position: absolute; left: 0px; top: -500px; width: 1px; height: 1px; overflow: hidden; }
+
+/* commented out for now not supported by all browsers
+.box {border:1px solid; margin:.5em; background-color:#036; opacity: 0.6; filter:alpha (opacity=60); width:90%;}
+a.new_alert {target: new front;}*/
+
