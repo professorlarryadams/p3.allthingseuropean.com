@@ -1178,7 +1178,7 @@ $(document).ready(function(){
             <tr>
             	
    		      <td colspan="7"><div class="footer centered"><input type="reset" name="reset" id="reset" value="Reset"> <input name="submit" type="submit" value="Submit"></div>
-               </form>
+               
               </td>
 	        </tr>
             <tr>
@@ -1198,7 +1198,7 @@ $(document).ready(function(){
      </td>
             </tr>
       </table>
- 
+ </form>
     
 <!-- end .content --></div>
   
