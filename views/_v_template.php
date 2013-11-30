@@ -28,8 +28,8 @@
        		<li><a href='/'>Home</a></li>
                                 
              <?php if($user): ?>
-             	<li><a href='/form/add'>Form</a></li>
-             	<li><a href='/form/'>View Form</a></li>
+             	<li><a href='/posts/add'>Form</a></li>
+             	<li><a href='/profile'>View Form</a></li>
              	<li><a href='/users/logout'>Logout</a></li>
              	<?php else: ?>
              	<li><a href='/users/signup'>Sign Up</a></li>

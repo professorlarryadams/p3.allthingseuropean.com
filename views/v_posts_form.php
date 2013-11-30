@@ -53,7 +53,7 @@ $(document).ready(function(){
 
 	<div class="content">
   
-  <form name="719B" method="post" action="/posts/add">
+  <form name="719B" method="post" action="/posts/p_add">
    		  
    <table>
             <tr>
@@ -81,7 +81,7 @@ $(document).ready(function(){
               	<div class="float_left" style="width:17%; max-width:162px">  
                   <span id="sprytextfield2">
    		          <label>First Name:<br/>
-   		            <input name="fname" type="text" id="first_name" size="19" title="Enter your First Name">
+   		            <input name="first_name" type="text" id="first_name" size="19" title="Enter your First Name">
 	              </label><br/>
    		          <span class="textfieldRequiredMsg">Please enter your first name.</span></span>
                   </div>
@@ -89,7 +89,7 @@ $(document).ready(function(){
                 <div class="float_left" style="width:17%; max-width:162px">  
                   <span id="sprytextfield3">
    		          <label>Middle Name:<br/>
-   		            <input name="mname" type="text" id="middle_name" size="19" title="Enter your Middle name">
+   		            <input name="middle_name" type="text" id="middle_name" size="19" title="Enter your Middle name">
 				  </label>
 				  </span>
                   </div>
@@ -97,7 +97,7 @@ $(document).ready(function(){
                 <div class="float_left" style="width:28.5%; max-width:272px;">  
             <span id="sprytextfield1">
    		          <label>Last Name:<br/>
-   		            <input name="lname" type="text" id="lastname" size="35" title="Enter your Last Name">
+   		            <input name="last_name" type="text" id="last_name" size="35" title="Enter your Last Name">
 	              </label><br/>
                   
    		          <span class="textfieldRequiredMsg">Pleas enter your last name.</span></span>
@@ -135,13 +135,13 @@ $(document).ready(function(){
                   <div class="float_left" style="width:23%;">  
               <strong>2b. Reference # </strong>(if applicable):<br />
               <span id="sprytextfield11">
-              <input type="text" name="Ref_number" id="Ref_number" title="Please enter a reference number (if applicable)"><br />
+              <input type="text" name="ref_num" id="ref_num" title="Please enter a reference number (if applicable)"><br />
 </span>
                </div>
                
                   <div class="float_left" style="width:29%;">  
                <strong>2c. Alien Registration # </strong>(if applicable):<br /> <span id="sprytextfield6">
-	              <input type="text" name="alien_number" id="alien_number" title="If you are not a citizen please enter your ARN."><br />
+	              <input type="text" name="arn" id="arn" title="If you are not a citizen please enter your ARN."><br />
 			  </span>
                </div>
                
@@ -1177,7 +1177,9 @@ $(document).ready(function(){
    		    
             <tr>
             	
-   		      <td colspan="7"><div class="footer centered"><input type="reset" name="reset" id="reset" value="Reset"> <input type="submit" name="submit" id="submit" value="Continue"></div></td>
+   		      <td colspan="7"><div class="footer centered"><input type="reset" name="reset" id="reset" value="Reset"> <input name="submit" type="submit" value="Submit"></div>
+               </form>
+              </td>
 	        </tr>
             <tr>
               <td colspan="7"><div>
@@ -1196,7 +1198,7 @@ $(document).ready(function(){
      </td>
             </tr>
       </table>
-  </form>
+ 
     
 <!-- end .content --></div>
   
@@ -1208,7 +1210,6 @@ var spryselect3 = new Spry.Widget.ValidationSelect("spryselect3");
 var sprytextfield16 = new Spry.Widget.ValidationTextField("sprytextfield16", "zip_code");
 var sprytextfield17 = new Spry.Widget.ValidationTextField("sprytextfield17", "none", {isRequired:false});
 var sprytextfield18 = new Spry.Widget.ValidationTextField("sprytextfield18", "none", {isRequired:false});
-var spryselect4 = new Spry.Widget.ValidationSelect("spryselect4");
 var sprytextfield19 = new Spry.Widget.ValidationTextField("sprytextfield19", "zip_code", {isRequired:false});
 var sprytextfield20 = new Spry.Widget.ValidationTextField("sprytextfield20", "phone_number", {hint:"(000) 000-0000"});
 var sprytextfield21 = new Spry.Widget.ValidationTextField("sprytextfield21", "phone_number", {isRequired:false, hint:"(000) 000-0000"});

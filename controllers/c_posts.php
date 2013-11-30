@@ -1,24 +1,21 @@
 <?php
 
-
-	class posts_controller extends base_controller {
+class posts_controller extends base_controller {
 
     public function __construct() {
         parent::__construct();
 
         # Make sure user is logged in if they want to use anything in this controller
         if(!$this->user) {
-            die("You must login. <a href='/users/login'>Login</a>");
+            die("Ypu must login. <a href='/users/login'>Login</a>");
         }
     }
 
-    public function posts() {
+    public function add() {
 
         # Setup view
         $this->template->content = View::instance('v_posts_form');
-		#$this->template->content = View::instance('v_posts_form_2');
-		
-        $this->template->title   = "Online Form";
+        $this->template->title   = "Application";
 
         # Render template
         echo $this->template;
@@ -38,10 +35,8 @@
         # Note we didn't have to sanitize any of the $_POST data because we're using the insert method which does it for us
         DB::instance(DB_NAME)->insert('719B', $_POST);
 
-        # Redirected to home
-        Router::redirect("/posts/form/2");
+        # Redirect to second page
+        Router::redirect('/posts/form/2');
 
     }
-		
-	
 }
