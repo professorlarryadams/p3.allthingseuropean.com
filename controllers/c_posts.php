@@ -15,7 +15,6 @@ class posts_controller extends base_controller {
 
         # Setup view
         $this->template->content = View::instance('v_posts_form');
-		$this->template->content = View::instance('v_posts_form_2');
 		
         $this->template->title   = "Application";
 
@@ -40,7 +39,36 @@ class posts_controller extends base_controller {
         DB::instance(DB_NAME)->insert('719B', $_POST);
 
         # Redirect to second page
-        Router::redirect('/posts/form/2');
+        Router::redirect('/posts/add2');
+
+    }
+	
+	public function add2() {
+
+        # Setup view
+		$this->template->content = View::instance('v_posts_form_2');
+		
+        $this->template->title   = "Application";
+
+        # Render template
+        echo $this->template;
+
+    }
+
+    public function p_add2() {
+
+        # Associate this post with this user
+        $_POST['user_id']  = $this->user->user_id;
+
+		
+		unset($_POST['submit']);
+
+        # Insert
+        # Note we didn't have to sanitize any of the $_POST data because we're using the insert method which does it for us
+        DB::instance(DB_NAME)->insert('719B', $_POST);
+
+        # Redirect to second page
+        Router::redirect('/');
 
     }
 }

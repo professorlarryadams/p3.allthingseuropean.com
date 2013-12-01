@@ -83,11 +83,11 @@ LINKS
 *********/
 /* common to all links */
 a:link {
-	color: #000;
+	color: #fff;
 }
-a:visited {color:#036;}
-a:hover{color:#036;}
-a:active {color:#036;}
+a:visited {color:#ccc;}
+a:hover{color:#ccc;}
+a:active {color:#ccc;}
 a:link img {border:hidden; border-width:0px;}
 a:visited img {border:hidden; border-width:0px;}
 img {border:none}

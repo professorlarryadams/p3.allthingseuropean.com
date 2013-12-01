@@ -1,3 +1,9 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+
+
 <title>Online Form page 2</title>
 
 <!-- CSS -->
@@ -33,11 +39,13 @@
 
 </head>
 
+<body>
+
 <div class="standard">
 
 	<div class="content">
   
-  <form name="719B" method="post" action="/posts/add">
+  <form name="719B" method="post" action="/posts/p_add2">
    		  
    <table>
             <tr>
@@ -64,7 +72,7 @@
                 
                   <div class="float_left"><label>
                     <input type="checkbox" name="twic_receipt" value="twic_receipt" id="twic_0" title="Provide a receipt of your TWIC">
-                    I Have a valid TWIC or have applied for a TWIC with the TSA</label>
+                    I have a valid TWIC or have applied for a TWIC with the TSA</label>
                  </div>
                   
                   <div class="float_left"><label>
@@ -101,16 +109,13 @@ Forbes Dr., Martinsburg, WV 25404. For more information on MOS, please visit htt
               <div><strong>3. I have been a user of/or addicted to a dangerous drug, including marijuana, within the last 10 years.</strong></div>
                 
                  <div class="float_left">
-                  <label>
-                    <input type="checkbox" name="drugs_no" value="no" id="drugs_0">
-                    No</label>
-                    </div>
-                    
-                 <div class="float_left">
-                  <label>
-                    <input type="checkbox" name="drugs_yes" value="yes" id="drugs_1" title="You must provide a copy of your convictions">
-                    Yes</label>
-                </div>
+                   <span id="spryselect2">
+                   <select name="drugs" id="drugs">
+                     <option>Please Select</option>
+                     <option value="no">No</option>
+                     <option value="yes">Yes</option>
+                   </select>
+                <span class="selectRequiredMsg">Please select an item.</span></span> </div>
 	         
               </td>
 	        </tr>
@@ -295,26 +300,26 @@ application or taking any action against my Merchant Mariner’s Credential. Aut
             </td>
             </tr>
   <tr>
-   		      <td colspan="2" >10.  Oath <strong>(Mandatory for Original Only):</strong>
+   		      <td colspan="2" ><div>10.  Oath <strong>(Mandatory for Original Only):</strong></div>
    		        <div class="float-left"><input name="oath" type="checkbox" value="y"></div>
 
 </td>
         </tr>    
                		    <tr class="clear">
-   		      <td colspan="2" ><strong>11.  Applicant’s Signature</strong>
+   		      <td colspan="2" >
+              	<div><strong>11.  Applicant’s Signature</strong></div>
                 
-                <div class="float_left" style="width:83%">
+                <div class="float_left" style="width:80%">
 					<span id="sprytextfield5">
 					<label for="e_signature"><strong>X</strong> Electronic Signature of Applicant</label><br />
-					<input type="file" name="e_signature"  id="e_signature" title="Upload your electronic Signature!"><br />
+					<input name="e_signature" type="file"  id="e_signature" title="Upload your electronic Signature!"><br />
 					<span class="textfieldRequiredMsg">Please enter your electronic signature.</span></span></div>
 				
                 	<div class="float_left" style="width:17%">
-					<span id="sprytextfield9">
-					<label for="signature_date">Date</label><br/>
-					<input type="text" name="signature_date_mariner" id="datepicker"><br />
-					<span class="textfieldRequiredMsg">A value is required.</span><span class="textfieldInvalidFormatMsg">Please enter a date.</span></span><strong></strong>
-					</div>
+                      <span id="sprytextfield8">
+                      <label for="datepicker">Date:</label>
+                      <input type="text" name="signature_date" id="datepicker">
+                    <span class="textfieldRequiredMsg">A value is required.</span></span> </div>
 	         
               </td>
 	        </tr> 
@@ -357,6 +362,9 @@ var sprytextfield6 = new Spry.Widget.ValidationTextField("sprytextfield6", "zip_
 var sprytextfield7 = new Spry.Widget.ValidationTextField("sprytextfield7", "phone_number", {hint:"(000) 000-0000", isRequired:false});
 var spryselect1 = new Spry.Widget.ValidationSelect("spryselect1", {isRequired:false});
 var sprytextfield5 = new Spry.Widget.ValidationTextField("sprytextfield5");
-var sprytextfield9 = new Spry.Widget.ValidationTextField("sprytextfield9", "date", {format:"dd/mm/yyyy", hint:"dd/mm/yyyy"});
+var spryselect2 = new Spry.Widget.ValidationSelect("spryselect2");
+var sprytextfield8 = new Spry.Widget.ValidationTextField("sprytextfield8");
 </script>
 
+</body>
+</html>

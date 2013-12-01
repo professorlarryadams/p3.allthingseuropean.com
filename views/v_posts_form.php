@@ -96,8 +96,9 @@
                 <div class="float_left" style="width:11%; max-width:110px">  
               <span id="sprytextfield10">
                   <label>Suffix:<br/>
-                  <input name="suffix" type="text" id="suffix" size="10" title="Enter your suffix (sr, jr, I, II, III)"></label><br/>
-                  <span class="textfieldRequiredMsg">A value is required.</span></span>
+                    <input name="suffix" type="text" id="suffix" size="10" title="Enter your suffix (sr, jr, I, II, III)">
+</label><br/>
+</span>
               
                 </div>
                  
@@ -1152,11 +1153,10 @@
    		        <div><strong>Description of Endorsement(s) Desired:</strong> Include all appropriate information - Officer (i.e. deck - Master/Mate?propulsion/Tonnage//Route OR Engineer Grade - 3rd AE; DDE/Propulsion/Horsepower) Ratings (i.e.: Able Seaman, Tankerman, QMED, Lifeboatman)
                </div>
 
-              <label for="description"></label>
-              <span id="countsprytextarea2">&nbsp;</span><span class="textareaRequiredMsg">A value is required.</span>
-              <span class="textareaMaxCharsMsg">Exceeded maximum number of characters.</span>
-              <textarea name="description"   id="description"  cols="115" rows="5" title="Enter description of edorcement you are seeking."></textarea>
-              <br />
+             	<span id="sprytextarea2">
+                <label for="description"></label>
+                <textarea name="description" id="description" cols="115" rows="5"></textarea>
+                <span class="textareaRequiredMsg">A value is required.</span><span class="textareaMinCharsMsg">Minimum number of characters not met.</span><span class="textareaMaxCharsMsg">Exceeded maximum number of characters.</span></span><br />
               <span class="textareaMinCharsMsg">Minimum number of characters not met.</span></td>
         </tr>
    		    
@@ -1233,11 +1233,11 @@ var spryselect8 = new Spry.Widget.ValidationSelect("spryselect8");
 var spryselect9 = new Spry.Widget.ValidationSelect("spryselect9");
 var sprycheckbox1 = new Spry.Widget.ValidationCheckbox("sprycheckbox1", {isRequired:false, minSelections:0, maxSelections:1});
 var sprytextfield9 = new Spry.Widget.ValidationTextField("sprytextfield9", "social_security_number", {hint:"000-00-0000", useCharacterMasking:true});
-var sprytextfield10 = new Spry.Widget.ValidationTextField("sprytextfield10", "none", {hint:"Suffix"});
+var sprytextfield10 = new Spry.Widget.ValidationTextField("sprytextfield10", "none", {hint:"Suffix", isRequired:false});
 var sprytextfield5 = new Spry.Widget.ValidationTextField("sprytextfield5", "none", {hint:"Full name", minChars:1});
 var sprytextfield11 = new Spry.Widget.ValidationTextField("sprytextfield11", "integer", {isRequired:false, hint:"numbers only"});
 var spryselect1 = new Spry.Widget.ValidationSelect("spryselect1", {isRequired:false});
-var sprytextarea2 = new Spry.Widget.ValidationTextarea("sprytextarea2", {maxChars:600, minChars:20, hint:"Please enter description of endorcement your are seeking!", counterType:"chars_remaining", counterId:"countsprytextarea2"});
+var sprytextarea2 = new Spry.Widget.ValidationTextarea("sprytextarea2", {minChars:10, maxChars:600, hint:"You must enter your description in this box!"});
 </script>
 </body>
 </html>
