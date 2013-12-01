@@ -2,53 +2,43 @@
 <html>
 <head>
 <meta charset="UTF-8">
+
 <title>Online Form</title>
 
-<!-- CSS -->
+	<!-- CSS -->
 
-<!--<link href="css/main.css" rel="stylesheet" type="text/css">-->
-<link href="/css/main.css" rel="stylesheet" type="text/css">
-<link href="/css/forms_table.css" rel="stylesheet" type="text/css">
-<link href="/js/SpryAssets/SpryValidationTextField.css" rel="stylesheet" type="text/css">
-<link href="/js/SpryAssets/SpryValidationSelect.css" rel="stylesheet" type="text/css">
-<link href="/js/SpryAssets/SpryValidationTextarea.css" rel="stylesheet" type="text/css">
-<link href="/js/SpryAssets/SpryValidationCheckbox.css" rel="stylesheet" type="text/css">
-<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
- 
+		<link href="../css/main.css" rel="stylesheet" type="text/css">
+		<link href="../css/forms_table.css" rel="stylesheet" type="text/css">
+		<link href="../js/SpryAssets/SpryValidationTextField.css" rel="stylesheet" type="text/css">
+		<link href="../js/SpryAssets/SpryValidationSelect.css" rel="stylesheet" type="text/css">
+		<link href="../js/SpryAssets/SpryValidationTextarea.css" rel="stylesheet" type="text/css">
+		<link href="../js/SpryAssets/SpryValidationCheckbox.css" rel="stylesheet" type="text/css">
+		<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+		
+	<!-- JS -->
 
-<!-- JS -->
-
-<script src="/js/SpryAssets/SpryValidationTextField.js" type="text/javascript"></script>
-<script src="/js/SpryAssets/SpryValidationSelect.js" type="text/javascript"></script>
-<script src="/js/SpryAssets/SpryValidationTextarea.js" type="text/javascript"></script>
-<script src="/js/SpryAssets/SpryValidationCheckbox.js" type="text/javascript"></script>
-<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+		<script src="../js/SpryAssets/SpryValidationTextField.js" type="text/javascript"></script>
+		<script src="../js/SpryAssets/SpryValidationSelect.js" type="text/javascript"></script>
+		<script src="../js/SpryAssets/SpryValidationTextarea.js" type="text/javascript"></script>
+		<script src="../js/SpryAssets/SpryValidationCheckbox.js" type="text/javascript"></script>
+		<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+		<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script> 
 
 <script>
   $(function() {
     $( document ).tooltip();
   });
   </script>
-  
-  <!-- for color boxes -->
-  <script type="text/javascript" src="/nmc/Scripts/jquery.js"></script>
-  <script type="text/javascript" src="/nmc/Scripts/jquery.colorbox.js"></script>
-<link href="/nmc/CSS/colorbox.css" rel="stylesheet" type="text/css" media="screen" />
-
-<script type="text/javascript">
-<!--
-$(document).ready(function(){
-		//assign the ColorBox event to elements, using a class name on the a tag
-		$(".c_box").colorbox({width:"900px", height:"60%", iframe:true, escKey:true, overlayClose:true});
-
-	});
-	-->
-</script>
+ 
+  <script>
+  $(function() {
+    $( "#datepicker" ).datepicker();
+  });
+  </script>
 
 </head>
-
 <body>
+
 <div class="standard">
 
 	<div class="content">
@@ -72,7 +62,7 @@ $(document).ready(function(){
             </tr>
             
    		    <tr>
-   		      <th colspan="7" style="height:25px; vertical-align:central;">Section I - Personal Data (<a class="c_box" href="/colorbox/instructions_sec1_personal_data.asp">Click here</a> for further instructions)</th>
+   		      <th colspan="7" style="height:25px; vertical-align:central;">Section I - Personal Data</th>
 	        </tr>
    		    <tr>
    		      <td colspan="7" >
@@ -84,7 +74,7 @@ $(document).ready(function(){
    		            <input name="first_name" type="text" id="first_name" size="19" title="Enter your First Name">
 	              </label><br/>
    		          <span class="textfieldRequiredMsg">Please enter your first name.</span></span>
-                  </div>
+                </div>
                           
                 <div class="float_left" style="width:17%; max-width:162px">  
                   <span id="sprytextfield3">
@@ -92,7 +82,7 @@ $(document).ready(function(){
    		            <input name="middle_name" type="text" id="middle_name" size="19" title="Enter your Middle name">
 				  </label>
 				  </span>
-                  </div>
+                </div>
                   
                 <div class="float_left" style="width:28.5%; max-width:272px;">  
             <span id="sprytextfield1">
@@ -114,7 +104,7 @@ $(document).ready(function(){
                 <div class="float_left" style="width:25%; max-width:240px">  
    		          <span id="sprytextfield4">
    		          <label>Alias(es):<br />
-   		          <input name="alias" type="text" id="alias" size="35" title="If your name change please list any aliases">
+   		          <input name="alias" type="text" id="alias" size="30" title="If your name change please list any aliases">
 	              </label>
 					</span>
           </div>
@@ -127,21 +117,23 @@ $(document).ready(function(){
                   <div class="float_left" style="width:23%;">  
               <strong>2a. Social Security #:</strong><br />
    		        <span id="sprytextfield9">
-                <input type="text" name="ssn" id="ssn" title="Social Security Number  000-00-0000">
+                <input name="ssn" type="text" id="ssn" title="Social Security Number  000-00-0000" maxlength="11">
                 <br />
                 <span class="textfieldRequiredMsg">Please enter your social security number.</span><span class="textfieldInvalidFormatMsg">Invalid format.</span></span>
                </div>
                
                   <div class="float_left" style="width:23%;">  
-              <strong>2b. Reference # </strong>(if applicable):<br />
+              <strong>2b. Reference #</strong>:<br />
               <span id="sprytextfield11">
-              <input type="text" name="ref_num" id="ref_num" title="Please enter a reference number (if applicable)"><br />
+              <input type="text" name="ref_num" id="ref_num" title="Please enter a reference number (if applicable)">
+              <span class="textfieldInvalidFormatMsg">Invalid format.</span><br />
 </span>
                </div>
                
                   <div class="float_left" style="width:29%;">  
-               <strong>2c. Alien Registration # </strong>(if applicable):<br /> <span id="sprytextfield6">
-	              <input type="text" name="arn" id="arn" title="If you are not a citizen please enter your ARN."><br />
+               <strong>2c. Alien Registration #</strong>:<br /> <span id="sprytextfield6">
+	              <input type="text" name="arn" id="arn" title="If you are not a citizen please enter your ARN.">
+	              <span class="textfieldInvalidFormatMsg">Invalid format.</span><br />
 			  </span>
                </div>
                
@@ -149,7 +141,7 @@ $(document).ready(function(){
              <strong> 3. Date of Birth </strong><br />
    		        
 	          <span id="sprytextfield7">
-              <input type="text" name="birthdate" id="birthdate" title="Please use this format mm/dd/yyyy">
+              <input type="text" name="birthdate" id="datepicker">
               <br />
               <span class="textfieldRequiredMsg">Please enter your date of birth.</span><span class="textfieldInvalidFormatMsg">Format must be dd/mm/yyyy.</span></span>
               </div></td>
@@ -409,8 +401,8 @@ $(document).ready(function(){
                 
                   <div class="float_left" style="width:21%">  
                 <span id="sprytextfield8">
-   		        <label><strong>5a. Place of Birth </strong>(City)<br />
-<input type="text" name="birthplace" id="birthplace" title="Please select a city." size="24">
+   		        <label><strong>5a. Birth City:</strong><br />
+				<input type="text" name="birthplace" id="birthplace" title="Enter a city where you were born." size="24">
  		          </label><br/>
    		        <span class="textfieldRequiredMsg">Please enter your birth city.</span></span> 
                 </div>
@@ -418,7 +410,7 @@ $(document).ready(function(){
                   <div class="float_left" style="width:15.5%">  
                   <span id="spryselect6">
    		        <label><strong>5b. Birth State:</strong></label><br/>
-   		          <select name="birth_state" id="birth_state" title="What state where you born in?">
+   		          <select name="birth_state" id="birth_state" title="Select the state you where born in?">
                     <option value="" selected="selected">Select a State</option>
                     <option value="AL">Alabama</option>
                     <option value="AK">Alaska</option>
@@ -478,7 +470,7 @@ $(document).ready(function(){
                   <div class="float_left" style="width:31%">  
                 <span id="spryselect7">
    		        <label><strong>5c. Birth Country:</strong></label><br/>
-   		          <select name="birth_country" id="birth_country" title="What country where you born in?">
+   		          <select name="birth_country" id="birth_country" title="Select the country you where born in?">
                     <option value="" selected="selected">Select a Country</option>
                     <option value="United States">United States</option>
                     <option value="United Kingdom">United Kingdom</option>
@@ -731,7 +723,7 @@ $(document).ready(function(){
    		      <td colspan="7" >
               
                  <div class="float_left" style="width:35%">
-              		<span id="spryselect8">
+           		   <span id="spryselect8">
    		        		<label for="eye_color"><strong>5d. Color of Eyes</strong>:</label>
    		        		<select name="eye_color" id="eye_color" title="Select your eye color">
    		          		<option>--- Please Select ---</option>
@@ -762,7 +754,7 @@ $(document).ready(function(){
 	        </tr>
    		    
             <tr>
-   		      <th colspan="7" >Mariner Information:  (<a class="c_box" href="/colorbox/instructions_sec1_mariner_info.asp">Click here for further instructions</a>)</th>
+   		      <th colspan="7" >Mariner Information:  (Click here for further instructions)</th>
 	        </tr>
    		    
             <tr>
@@ -855,7 +847,7 @@ $(document).ready(function(){
    		    
             <tr class="clear">
    		      <td colspan="7" >
-              <div><strong>6b. Delivery Address, if different:</strong> (PO BOX acceptable)</div>
+              <div><strong>6b. Delivery Address, if different:</strong> <strong>(PO BOX acceptable):</strong></div>
                  
                 <div class="float_left" style="width:43%">
                   <span id="sprytextfield17"> 
@@ -966,7 +958,7 @@ $(document).ready(function(){
 	        </tr>
    		    
             <tr class="clear">
-   		      <th colspan="7" ><strong>Next of Kin/Emergency Contact <span style="height:25px; vertical-align:central;"> (<a class="c_box" href="/colorbox/instructions_sec1_emergency_contact.asp">Click here</a> for further instructions)</span></strong></th>
+   		      <th colspan="7" ><strong>Emergency Contact</strong></th>
 	        </tr>
    		    
             <tr>
@@ -987,7 +979,7 @@ $(document).ready(function(){
 	          		<label for="street"> Street Address:</label><br />
                 	<input name="street" type="text" id="street" value="" size="60" title="Emergency contact street"><br />
 	          		<span class="textareaRequiredMsg">A value is required.</span></span> 
-                   </div>
+                </div>
                    
                   <div class="float_left" style="width:24%"> 
               		<span id="sprytextfield24">
@@ -1097,14 +1089,14 @@ $(document).ready(function(){
             		<span class="textfieldRequiredMsg">Please enter a email.</span>
               		<span class="textfieldInvalidFormatMsg">Must enter valid e-mail format.</span></span>
                   </div>
-               </td>
+              </td>
 	        </tr>
    		    
             <tr class="clear">
-   		      <th colspan="7" style="height:25px; vertical-align:central"><blockquote>
-   		        <p>Section II - Coast Guard Credential(s) or Endorsement Type(s) Requested: (Check all that apply)<br>
-   		          (<a class="c_box" href="/colorbox/instructions_sec2.asp">Click Here for further instructions</a>)</p>
-	          </blockquote></th>
+   		      <th colspan="7" style="height:25px; vertical-align:central">
+   		        <div>Section II - Coast Guard Credential(s) or Endorsement Type(s) Requested: (Check all that apply)<br>
+   		        </div>
+	          </th>
 	        </tr>
    		    
         <tr>
@@ -1156,14 +1148,16 @@ $(document).ready(function(){
               <td style="background-color:#bbb">&nbsp;</td> 
         </tr>
 	    <tr>
-   		      <td colspan="7" ><div>
-   		        <strong>Description of Endorsement(s) Desired:</strong> Include all appropriate information - Officer (i.e. deck - Master/Mate?propulsion/Tonnage//Route OR Engineer Grade - 3rd AE; DDE/Propulsion/Horsepower) Ratings (i.e.: Able Seaman, Tankerman, QMED, Lifeboatman)
-                
-   		      </div>
-              <div class="float_left" style="width:100%">
-   		        <span id="sprytextarea2">
-   		          <textarea name="description" id="description" cols="112" rows="5" title="Enter description of all endorcements you are seeking!" required></textarea>
-           <span class="textareaRequiredMsg">Please enter your request.</span></span></div></td>
+   		      <td colspan="7" >
+   		        <div><strong>Description of Endorsement(s) Desired:</strong> Include all appropriate information - Officer (i.e. deck - Master/Mate?propulsion/Tonnage//Route OR Engineer Grade - 3rd AE; DDE/Propulsion/Horsepower) Ratings (i.e.: Able Seaman, Tankerman, QMED, Lifeboatman)
+               </div>
+
+              <label for="description"></label>
+              <span id="countsprytextarea2">&nbsp;</span><span class="textareaRequiredMsg">A value is required.</span>
+              <span class="textareaMaxCharsMsg">Exceeded maximum number of characters.</span>
+              <textarea name="description"   id="description"  cols="115" rows="5" title="Enter description of edorcement you are seeking."></textarea>
+              <br />
+              <span class="textareaMinCharsMsg">Minimum number of characters not met.</span></td>
         </tr>
    		    
             <tr>
@@ -1177,7 +1171,10 @@ $(document).ready(function(){
    		    
             <tr>
             	
-   		      <td colspan="7"><div class="footer centered"><input type="reset" name="reset" id="reset" value="Reset"> <input name="submit" type="submit" value="Submit"></div>
+   		      <td colspan="7"><div class="footer centered">
+              	<input type="reset" id="reset" value="Reset"> 
+	            <input type="submit" id="print" value="Print">
+	            <input type="submit" value="Submit"></div>
                
               </td>
 	        </tr>
@@ -1222,13 +1219,12 @@ var sprytextfield26 = new Spry.Widget.ValidationTextField("sprytextfield26");
 var sprytextfield27 = new Spry.Widget.ValidationTextField("sprytextfield27", "phone_number", {hint:"(000) 000-0000"});
 var sprytextfield28 = new Spry.Widget.ValidationTextField("sprytextfield28", "phone_number", {isRequired:false});
 var sprytextfield29 = new Spry.Widget.ValidationTextField("sprytextfield29", "email");
-var sprytextarea2 = new Spry.Widget.ValidationTextarea("sprytextarea2");
 var sprytextfield1 = new Spry.Widget.ValidationTextField("sprytextfield1", "none", {hint:"Last Name"});
 var sprytextfield2 = new Spry.Widget.ValidationTextField("sprytextfield2", "none", {hint:"First Name"});
 var sprytextfield3 = new Spry.Widget.ValidationTextField("sprytextfield3", "none", {isRequired:false, hint:"Middle Name"});
 var sprytextfield4 = new Spry.Widget.ValidationTextField("sprytextfield4", "none", {isRequired:false, hint:"Former name"});
-var sprytextfield6 = new Spry.Widget.ValidationTextField("sprytextfield6", "none", {isRequired:false});
-var sprytextfield7 = new Spry.Widget.ValidationTextField("sprytextfield7", "date", {format:"dd/mm/yyyy", hint:"dd/mm/yyyy"});
+var sprytextfield6 = new Spry.Widget.ValidationTextField("sprytextfield6", "integer", {isRequired:false, hint:"numbers only"});
+var sprytextfield7 = new Spry.Widget.ValidationTextField("sprytextfield7", "date", {format:"dd/mm/yyyy", hint:"dd/mm/yyyy", useCharacterMasking:true});
 var spryselect2 = new Spry.Widget.ValidationSelect("spryselect2");
 var sprytextfield8 = new Spry.Widget.ValidationTextField("sprytextfield8");
 var spryselect6 = new Spry.Widget.ValidationSelect("spryselect6");
@@ -1236,11 +1232,12 @@ var spryselect7 = new Spry.Widget.ValidationSelect("spryselect7");
 var spryselect8 = new Spry.Widget.ValidationSelect("spryselect8");
 var spryselect9 = new Spry.Widget.ValidationSelect("spryselect9");
 var sprycheckbox1 = new Spry.Widget.ValidationCheckbox("sprycheckbox1", {isRequired:false, minSelections:0, maxSelections:1});
-var sprytextfield9 = new Spry.Widget.ValidationTextField("sprytextfield9", "social_security_number", {hint:"000-00-0000"});
+var sprytextfield9 = new Spry.Widget.ValidationTextField("sprytextfield9", "social_security_number", {hint:"000-00-0000", useCharacterMasking:true});
 var sprytextfield10 = new Spry.Widget.ValidationTextField("sprytextfield10", "none", {hint:"Suffix"});
 var sprytextfield5 = new Spry.Widget.ValidationTextField("sprytextfield5", "none", {hint:"Full name", minChars:1});
-var sprytextfield11 = new Spry.Widget.ValidationTextField("sprytextfield11", "none", {isRequired:false});
+var sprytextfield11 = new Spry.Widget.ValidationTextField("sprytextfield11", "integer", {isRequired:false, hint:"numbers only"});
 var spryselect1 = new Spry.Widget.ValidationSelect("spryselect1", {isRequired:false});
+var sprytextarea2 = new Spry.Widget.ValidationTextarea("sprytextarea2", {maxChars:600, minChars:20, hint:"Please enter description of endorcement your are seeking!", counterType:"chars_remaining", counterId:"countsprytextarea2"});
 </script>
 </body>
 </html>

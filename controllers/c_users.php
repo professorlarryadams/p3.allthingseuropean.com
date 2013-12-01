@@ -46,19 +46,24 @@ class users_controller extends base_controller {
             # Send them to the login page
             Router::redirect('/users/login');
             
-    }
+    	}
 
 
         /*-------------------------------------------------------------------------------------------------
         Display a form so users can login
         -------------------------------------------------------------------------------------------------*/
-    public function login() {
-    
-            $this->template->content = View::instance('v_users_login');            
-            echo $this->template;   
-       
-    }
-    
+    	public function login($error = NULL) {
+
+    	# Set up the view
+    	$this->template->content = View::instance("v_users_login");
+
+    	# Pass data to the view
+    	$this->template->content->error = $error;
+
+    	# Render the view
+    	echo $this->template;
+
+		}
     
     	/*-------------------------------------------------------------------------------------------------
     	Process the login form

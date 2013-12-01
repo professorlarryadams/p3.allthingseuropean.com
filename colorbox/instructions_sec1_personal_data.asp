@@ -23,7 +23,6 @@ td {vertical-align:text-top; padding:5px}
 <body>
 
 <noscript>
-<p class="centered">This page uses Javascript. Your browser either doesn't support Javascript or you have it turned off. To see this page as it is meant to be displayed please use a Javascript enabled browser. For instructions on how to enable Javascript in your browser visit our <a href="/nmc/webmaster/default.asp" title="link to webmaster page">Webmaster page</a>.</p>
 </noscript>
 
 
@@ -61,25 +60,11 @@ td {vertical-align:text-top; padding:5px}
     <td><strong>Place of Birth: </strong>City, State,  Country. If born outside the United States, leave State blank.</td>
     </tr>
     </table>
-
-
-
-
     
 	<p class="centered">
-    <form action="/nmc/forms/719B_p1_input.html" target="_blank" style="text-align:center">
-    <input style="padding:5px;" type="submit" value="Return to Form" />
-    </form>
+    
   </div>
 </div>
-<div class="separator">
-	&nbsp;
-</div>
 
-<script type="text/javascript" src="/nmc/Scripts/gatag.js"></script>
-<!-- Google tracking code - needs to be at the end of the page just before the closing body tag -->
-<script type="text/javascript">var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));</script>
-<script type="text/javascript">try{var pageTracker = _gat._getTracker("UA-6616376-2");pageTracker._trackPageview();} catch(err) {}
-</script>
 </body>
 </html>

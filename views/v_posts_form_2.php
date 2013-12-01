@@ -1,27 +1,21 @@
-<!doctype html>
-<html>
-<head>
-<meta charset="UTF-8">
 <title>Online Form page 2</title>
 
 <!-- CSS -->
-
-<!--<link href="css/main.css" rel="stylesheet" type="text/css">-->
-<link href="/css/main.css" rel="stylesheet" type="text/css">
-<link href="/css/forms_table.css" rel="stylesheet" type="text/css">
-<link href="/js/SpryAssets/SpryValidationTextField.css" rel="stylesheet" type="text/css">
-<link href="/js/SpryAssets/SpryValidationSelect.css" rel="stylesheet" type="text/css">
-<link href="/js/SpryAssets/SpryValidationTextarea.css" rel="stylesheet" type="text/css">
-<link href="/js/SpryAssets/SpryValidationCheckbox.css" rel="stylesheet" type="text/css">
+<link href="../css/main.css" rel="stylesheet" type="text/css">
+<link href="../css/forms_table.css" rel="stylesheet" type="text/css">
+<link href="../js/SpryAssets/SpryValidationTextField.css" rel="stylesheet" type="text/css">
+<link href="../js/SpryAssets/SpryValidationSelect.css" rel="stylesheet" type="text/css">
+<link href="../js/SpryAssets/SpryValidationTextarea.css" rel="stylesheet" type="text/css">
+<link href="../js/SpryAssets/SpryValidationCheckbox.css" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
  
 
 <!-- JS -->
 
-<script src="/js/SpryAssets/SpryValidationTextField.js" type="text/javascript"></script>
-<script src="/js/SpryAssets/SpryValidationSelect.js" type="text/javascript"></script>
-<script src="/js/SpryAssets/SpryValidationTextarea.js" type="text/javascript"></script>
-<script src="/js/SpryAssets/SpryValidationCheckbox.js" type="text/javascript"></script>
+<script src="../js/SpryAssets/SpryValidationTextField.js" type="text/javascript"></script>
+<script src="../js/SpryAssets/SpryValidationSelect.js" type="text/javascript"></script>
+<script src="../js/SpryAssets/SpryValidationTextarea.js" type="text/javascript"></script>
+<script src="../js/SpryAssets/SpryValidationCheckbox.js" type="text/javascript"></script>
 <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 
@@ -30,26 +24,14 @@
     $( document ).tooltip();
   });
   </script>
-
-  <!-- for color boxes -->
-  <script type="text/javascript" src="/nmc/Scripts/jquery.js"></script>
-  <script type="text/javascript" src="/nmc/Scripts/jquery.colorbox.js"></script>
-<link href="/nmc/CSS/colorbox.css" rel="stylesheet" type="text/css" media="screen" />
-
-<script type="text/javascript">
-<!--
-$(document).ready(function(){
-		//assign the ColorBox event to elements, using a class name on the a tag
-		$(".c_box").colorbox({width:"900px", height:"60%", iframe:true, escKey:true, overlayClose:true});
-
-	});
-	-->
-</script>
+  
+   <script>
+  $(function() {
+    $( "#datepicker" ).datepicker();
+  });
+  </script>
 
 </head>
-
-<body>
-
 
 <div class="standard">
 
@@ -74,7 +56,7 @@ $(document).ready(function(){
             </tr>
             
    		    <tr>
-   		      <th colspan="2">Section III - Mariner's Consent/Certification--Check all that apply. (<a class="c_box" href="/colorbox/instructions_sec3.asp">Click here for further instructions</a>)</th>
+   		      <th colspan="2">Section III - Mariner's Consent/Certification--Check all that apply.</th>
 	        </tr>
    		    <tr>
    		      <td colspan="2" >
@@ -83,7 +65,7 @@ $(document).ready(function(){
                   <div class="float_left"><label>
                     <input type="checkbox" name="twic_receipt" value="twic_receipt" id="twic_0" title="Provide a receipt of your TWIC">
                     I Have a valid TWIC or have applied for a TWIC with the TSA</label>
-                  (receipt attached) </div>
+                 </div>
                   
                   <div class="float_left"><label>
                     <input type="checkbox" name="twic_exempt" value="twic_exempt" id="twic_1">
@@ -134,7 +116,7 @@ Forbes Dr., Martinsburg, WV 25404. For more information on MOS, please visit htt
 	        </tr>
    		    
             <tr class="clear">
-   		      <td colspan="2" ><strong>4. I have attached a signed statement of explanation for all convictions not previously disclosed</strong> to the Coast Guard on a prior  Merchant Mariner Credential Application. Per 46 CFR Part 10,  conviction means  found guilty by judgment or  by plea  and  includes cases of deferred adjudication  (no  contest, adjudication withheld, etc.) or  where the court required you to attend classes, make contribution of  time or money, receive treatment, submit to any manner  or probation or supervision, or  forgo appeal of a trial court finding.  Expunged  convictions must be reported unless the expungement was based upon a showing  that  the court's earlier conviction was in error.
+   		      <td colspan="2" ><strong>4. I have attached a signed statement of explanation for all convictions not previously disclosed</strong> to the Coast Guard on a prior  Merchant Mariner Credential Application. Per 46 CFR Part 10,  conviction means  found guilty by judgment or  by plea  and  includes cases of deferred adjudication  (no  contest, adjudication withheld, etc.) or  where the court required you to attend classes, make contribution of  time or money, receive treatment, submit to any manner  or probation or supervision, or  forgo appeal of a trial court finding.  Expunged  convictions must be reported unless the expungement was based upon a showing  that  the court's earlier conviction was in error.<br />
                 
                 <div class="float_left"><input name="convictions_statement" id="convictions_statement" type="checkbox" value="y" title="You can upload your conviction statement"> 
                 Yes</div>
@@ -313,7 +295,7 @@ application or taking any action against my Merchant Mariner’s Credential. Aut
             </td>
             </tr>
   <tr>
-   		      <td colspan="2" >10.  Oath <strong>(Mandatory for Original Only) (<a class="c_box" href="/colorbox/oath.html">click here to veiw oath</a>):</strong>
+   		      <td colspan="2" >10.  Oath <strong>(Mandatory for Original Only):</strong>
    		        <div class="float-left"><input name="oath" type="checkbox" value="y"></div>
 
 </td>
@@ -330,7 +312,7 @@ application or taking any action against my Merchant Mariner’s Credential. Aut
                 	<div class="float_left" style="width:17%">
 					<span id="sprytextfield9">
 					<label for="signature_date">Date</label><br/>
-					<input type="text" name="signature_date_mariner" id="signature_date"><br />
+					<input type="text" name="signature_date_mariner" id="datepicker"><br />
 					<span class="textfieldRequiredMsg">A value is required.</span><span class="textfieldInvalidFormatMsg">Please enter a date.</span></span><strong></strong>
 					</div>
 	         
@@ -339,7 +321,10 @@ application or taking any action against my Merchant Mariner’s Credential. Aut
    		    
         <tr>
             	
-   		      <td colspan="2"><div class="footer centered"><input type="reset" name="reset" id="reset" value="Reset"> <input type="submit" name="submit" id="submit" value="continue"></div></td>
+   		      <td colspan="2"><div class="footer centered" style="background-color:#000;">
+              	<input type="reset" id="reset" value="Reset"> 
+	            <input type="submit" id="print" value="Print">
+	            <input type="submit" id="submit" value="Submit"></div></td>
 	        </tr>
             <tr class="clear">
               <td colspan="2"><div>
@@ -374,5 +359,4 @@ var spryselect1 = new Spry.Widget.ValidationSelect("spryselect1", {isRequired:fa
 var sprytextfield5 = new Spry.Widget.ValidationTextField("sprytextfield5");
 var sprytextfield9 = new Spry.Widget.ValidationTextField("sprytextfield9", "date", {format:"dd/mm/yyyy", hint:"dd/mm/yyyy"});
 </script>
-</body>
-</html>
+
