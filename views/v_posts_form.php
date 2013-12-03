@@ -8,7 +8,6 @@
 	<!-- CSS -->
 
 		<link href="../css/main.css" rel="stylesheet" type="text/css">
-		<link href="../css/forms_table.css" rel="stylesheet" type="text/css">
 		<link href="../js/SpryAssets/SpryValidationTextField.css" rel="stylesheet" type="text/css">
 		<link href="../js/SpryAssets/SpryValidationSelect.css" rel="stylesheet" type="text/css">
 		<link href="../js/SpryAssets/SpryValidationTextarea.css" rel="stylesheet" type="text/css">
@@ -38,6 +37,8 @@
 
 </head>
 <body>
+
+<div class="container_12">
 
 <div class="standard">
 
@@ -1170,36 +1171,26 @@
 	        </tr>
    		    
             <tr>
-            	
-   		      <td colspan="7"><div class="footer centered">
+   		      <td colspan="7" style="background-color:#000;"><div class="centered">
               	<input type="reset" id="reset" value="Reset"> 
 	            <input type="submit" id="print" value="Print">
 	            <input type="submit" value="Submit"></div>
                
               </td>
 	        </tr>
-            <tr>
-              <td colspan="7"><div>
-    			<a href="http://jigsaw.w3.org/css-validator/check/referer">
-        		<img style="border:0;width:88px;height:31px"
-            	src="http://jigsaw.w3.org/css-validator/images/vcss"
-            	alt="Valid CSS!" />
-    			</a>
-			
-				<a href="http://jigsaw.w3.org/css-validator/check/referer">
-    			<img style="border:0;width:88px;height:31px"
-        		src="http://jigsaw.w3.org/css-validator/images/vcss-blue"
-        		alt="Valid CSS!" />
-				</a>
-			</div>
-     </td>
+            <tr class="clear">
+              	<td colspan="7">
+     			</td>
             </tr>
       </table>
  </form>
     
 <!-- end .content --></div>
   
-  <!-- end .container --></div>
+  <!-- end .standard --></div>
+  
+  <!-- container_12 --></div>
+  
 <script type="text/javascript">
 var sprytextfield14 = new Spry.Widget.ValidationTextField("sprytextfield14");
 var sprytextfield15 = new Spry.Widget.ValidationTextField("sprytextfield15");

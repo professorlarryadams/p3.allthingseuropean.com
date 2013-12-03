@@ -68,7 +68,52 @@ class posts_controller extends base_controller {
         DB::instance(DB_NAME)->insert('719B', $_POST);
 
         # Redirect to second page
-        Router::redirect('/');
+        Router::redirect('/posts/uploads');
 
     }
+	
+	 public function upload() {
+
+        # Setup view
+        $this->template->content = View::instance('v_posts_uploads');
+        $this->template->title   = "Profile";
+
+        # Render template
+        echo $this->template;
+
+   }
+   
+   	public function p_upload() {
+    
+		if ($_FILES['uploads']['error'] == 0)
+        {
+            # upload an image
+            $uploads = Upload::upload($_FILES, "/uploads/", array("JPG", "JPEG", "jpg", "jpeg", "gif", "GIF", "png", "PNG", "doc", "pdf", "docx"), $this->user->user_id);
+
+            if($uploads == 'Invalid file type.') {
+            
+			# return an error
+                Router::redirect("/posts/uploads/error"); 
+            }
+            else {
+            
+			# process the upload
+                $data = Array("upload" => $uploads);
+                DB::instance(DB_NAME)->update("users", $data, "WHERE user_id = ".$this->user->user_id);
+
+                # resize the image
+                $imgObj = new Image($_SERVER["DOCUMENT_ROOT"] . '/uploads/' . $uploads);
+                $imgObj->resize(100,100, "crop");
+                $imgObj->save_image($_SERVER["DOCUMENT_ROOT"] . '/uploads/' . $uploads); 
+            }
+        }
+        else
+        {
+            # return an error
+            Router::redirect("/posts/uploads/error");  
+        }
+
+        # Redirect back to the profile page
+        router::redirect('/users/posts/completed'); 
+    }  
 }

@@ -19,7 +19,7 @@ class index_controller extends base_controller {
                         $this->template->content = View::instance('v_index_index');
                         
                 # Now set the <title> tag
-                        $this->template->title = "Online Form";
+                        $this->template->title = "Welcome to Secure Online Forms";
         
                 # CSS/JS includes
                         /*
@@ -37,3 +37,4 @@ class index_controller extends base_controller {
         
         
 } # End of class
+

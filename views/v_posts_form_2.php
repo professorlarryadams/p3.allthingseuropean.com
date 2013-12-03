@@ -8,7 +8,6 @@
 
 <!-- CSS -->
 <link href="../css/main.css" rel="stylesheet" type="text/css">
-<link href="../css/forms_table.css" rel="stylesheet" type="text/css">
 <link href="../js/SpryAssets/SpryValidationTextField.css" rel="stylesheet" type="text/css">
 <link href="../js/SpryAssets/SpryValidationSelect.css" rel="stylesheet" type="text/css">
 <link href="../js/SpryAssets/SpryValidationTextarea.css" rel="stylesheet" type="text/css">
@@ -41,6 +40,8 @@
 
 <body>
 
+<div class="container_12">
+
 <div class="standard">
 
 	<div class="content">
@@ -68,7 +69,7 @@
 	        </tr>
    		    <tr>
    		      <td colspan="2" >
-              <strong>1. Transportation Worker's Identification Credential (TWIC)</strong>
+              <div><strong>1. Transportation Worker's Identification Credential (TWIC)</strong></div>
                 
                   <div class="float_left"><label>
                     <input type="checkbox" name="twic_receipt" value="twic_receipt" id="twic_0" title="Provide a receipt of your TWIC">
@@ -326,26 +327,14 @@ application or taking any action against my Merchant Mariner’s Credential. Aut
    		    
         <tr>
             	
-   		      <td colspan="2"><div class="footer centered" style="background-color:#000;">
+   		      <td  colspan="7" style="background-color: #000;"><div class="centered">
               	<input type="reset" id="reset" value="Reset"> 
 	            <input type="submit" id="print" value="Print">
 	            <input type="submit" id="submit" value="Submit"></div></td>
 	        </tr>
             <tr class="clear">
-              <td colspan="2"><div>
-    			<a href="http://jigsaw.w3.org/css-validator/check/referer">
-        		<img style="border:0;width:88px;height:31px"
-            	src="http://jigsaw.w3.org/css-validator/images/vcss"
-            	alt="Valid CSS!" />
-    			</a>
-			
-				<a href="http://jigsaw.w3.org/css-validator/check/referer">
-    			<img style="border:0;width:88px;height:31px"
-        		src="http://jigsaw.w3.org/css-validator/images/vcss-blue"
-        		alt="Valid CSS!" />
-				</a>
-			</div>
-     </td>
+              	<td colspan="2">
+     			</td>
             </tr>
       </table>
   </form>
@@ -353,6 +342,8 @@ application or taking any action against my Merchant Mariner’s Credential. Aut
 <!-- end .content --></div>
   
   <!-- end .standard --></div>
+  
+  	<!-- container_12 --></div>
 <script type="text/javascript">
 var sprytextfield1 = new Spry.Widget.ValidationTextField("sprytextfield1", "none", {isRequired:false});
 var sprytextfield2 = new Spry.Widget.ValidationTextField("sprytextfield2", "none", {isRequired:false});

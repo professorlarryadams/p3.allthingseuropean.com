@@ -1,3 +1,10 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+
+<title>Online Form</title>
+
 <!-- CSS -->
 
 <link href="../css/box.css" rel="stylesheet" type="text/css">
@@ -16,6 +23,10 @@
 </oa:widgets>
 -->
 </script>
+
+</head>
+
+<body>
 
 <div class="container">
 
@@ -63,7 +74,17 @@
     <input id="txtPassword" name="password" placeholder="password" type="password" title="Min 8 characters, 1 Capitol letter, 1 lower case, 1 number, and 1 special character">
   </div>
   <br />
-
+                        
+     <?php if(isset($error) && $error == 'blank-fields'): ?>
+     	<div class='error'>
+        All fields need to be completed
+       </div>
+       <?php elseif(isset($error) && $error == 'invalid-login'): ?>
+       <div class='error'>
+       Invalid Login, please try again
+       </div>
+      <?php endif; ?>
+                          
   
   <input type='submit' value='Sign Up'>
 </form>
@@ -75,3 +96,5 @@ var sprytextfield1 = new Spry.Widget.ValidationTextField("sprytextfield1");
 var sprytextfield2 = new Spry.Widget.ValidationTextField("sprytextfield2");
 var sprytextfield3 = new Spry.Widget.ValidationTextField("sprytextfield3");
  </script>
+</body>
+</html>
