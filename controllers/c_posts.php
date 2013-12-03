@@ -85,7 +85,7 @@ class posts_controller extends base_controller {
    
    	public function p_upload() {
     
-		if ($_FILES['uploads']['error'] == 0)
+		if ($_FILES['upload']['error'] == 0)
         {
             # upload an image
             $uploads = Upload::upload($_FILES, "/uploads/", array("JPG", "JPEG", "jpg", "jpeg", "gif", "GIF", "png", "PNG", "doc", "pdf", "docx"), $this->user->user_id);
