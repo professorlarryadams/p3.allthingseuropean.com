@@ -13,7 +13,7 @@ body {
 }
 div {padding:0; margin:0;}
 
-.container_12 {max-width:1120px; background-color:#fff; margin-left:10px; margin-right:10px; padding:0; margin: 0 auto;}
+.container_12 {max-width:1080px; background-color:#fff; margin-left:10px; margin-right:10px; padding:0; margin: 0 auto;}
 
 /* ~~the header is not given a width. It will extend the full width of your layout. It contains an image placeholder that should be replaced with your own linked logo~~ */
 .header {
@@ -23,7 +23,22 @@ div {padding:0; margin:0;}
 }
 
 
-.standard {clear:both; margin:auto; margin-top: 5px; padding-top:0; text-align:left; background-color:#FFF; border:solid; border-width:1px; border-color:#666; border-bottom-width:3px; border-right-width:3px; box-shadow: 3px 3px 10px #666; position:relative;}
+.standard {
+	clear: both;
+	width: 1040px;
+	margin: auto;
+	margin-top: 5px;
+	padding-top: 0;
+	text-align: left;
+	background-color: #FFF;
+	border: solid;
+	border-width: 1px;
+	border-color: #666;
+	border-bottom-width: 3px;
+	border-right-width: 3px;
+	box-shadow: 3px 3px 10px #666;
+	position: relative;
+}
 
 /************
  containers and sections 

@@ -45,13 +45,7 @@
   });
   </script>
   
-  <style type='text/css'>
-    a {
-    display: block;
-    position: absolute;
-    bottom: 0;
-}
-  </style>
+  
   
 <script>
 $(document).ready(function () {
@@ -1289,18 +1283,13 @@ $(document).ready(function () {
                
               </td>
 	    </tr>
-            
-        <tr class="clear">
-            <td colspan="7"></td>
-        </tr>
       
       </table>
  </form>
- <a href="http://docs.jquery.com/Plugins/Validation" target="_blank">Validation Documentation</a>
+ 
 </div>
 
-</div>
-  	
+</div>	
   
 <script type="text/javascript">
 var sprytextfield14 = new Spry.Widget.ValidationTextField("sprytextfield14", "none", {hint:"Physical Address", minChars:1, maxChars:40});

@@ -39,7 +39,7 @@ class posts_controller extends base_controller {
         DB::instance(DB_NAME)->insert('719B', $_POST);
 
         # Redirect to second page
-        Router::redirect('/posts/p_add2');
+        Router::redirect('/posts/add2');
 
     	}
 	
@@ -55,7 +55,7 @@ class posts_controller extends base_controller {
 
     	}
 
-    public function p_add2() {
+    public function p_add2($record_id) {
 		
 		$record_id = $_POST['record_id'];
 		unset($_POST['record_id']); 
