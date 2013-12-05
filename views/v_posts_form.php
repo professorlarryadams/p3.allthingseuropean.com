@@ -1285,7 +1285,6 @@ $(document).ready(function () {
         <tr>
    		      <td colspan="7" style="background-color:#000;"><div class="centered">
               	<input type="reset" id="reset" value="Reset"> 
-	            <input type="submit" id="print" value="Print">
 	            <input type="submit" value="Submit"></div>
                
               </td>

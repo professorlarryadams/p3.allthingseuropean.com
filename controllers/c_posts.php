@@ -45,7 +45,7 @@ class posts_controller extends base_controller {
 	
 	public function add2($record_id) {
 
-        # Passing the arguement to the view
+       # Passing the arguement to the view
        $this->template->content->record_id = $record_id;
 	
 		$this->template->title   = "Application page 2";
@@ -61,7 +61,7 @@ class posts_controller extends base_controller {
 		unset($_POST['record_id']); 
 
         # Update record with page 2 content
-       	DB::instance(DB_NAME)->update('719B', $_POST, "WHERE 719b_id = ".$record_id);
+       	DB::instance(DB_NAME)->update('719B', $_POST, 'WHERE 719b_id = '.$record_id);
 
         # Redirect to second page
         Router::redirect('/posts/uploads');		
@@ -72,7 +72,7 @@ class posts_controller extends base_controller {
 
         # Setup view
         $this->template->content = View::instance('v_posts_uploads');
-        $this->template->title   = "Profile";
+        $this->template->title   = "Upload Documents";
 
         # Render template
         echo $this->template;
