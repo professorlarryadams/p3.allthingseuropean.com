@@ -1,13 +1,6 @@
 /* Reset CSS */
 
-body {
-	background: #4E5869;
-	color: #000;
-	font: 14px Arial;
-	margin: 0 auto;
-	padding: 0;
-	position: relative;
-}
+
 h1{ font-size:28px;}
 h2{ font-size:26px;}
 h3{ font-size:18px;}
@@ -30,7 +23,7 @@ form:after {
 	clear: both;
 	visibility: hidden;
 }
-.container { margin: 15px auto; position: relative; width: 1000px; }
+
 #content {
 	background: #f9f9f9;
 	background: -moz-linear-gradient(top,  rgba(248,248,248,1) 0%, rgba(249,249,249,1) 100%);

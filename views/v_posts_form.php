@@ -8,118 +8,220 @@
 	<!-- CSS -->
 
 		<link href="../css/main.css" rel="stylesheet" type="text/css">
+        <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+        <link rel="stylesheet" href="../css/validationEngine.jquery.css" type="text/css"/>
+		<link rel="stylesheet" href="../css/template.css" type="text/css"/>
 		<link href="../js/SpryAssets/SpryValidationTextField.css" rel="stylesheet" type="text/css">
 		<link href="../js/SpryAssets/SpryValidationSelect.css" rel="stylesheet" type="text/css">
 		<link href="../js/SpryAssets/SpryValidationTextarea.css" rel="stylesheet" type="text/css">
 		<link href="../js/SpryAssets/SpryValidationCheckbox.css" rel="stylesheet" type="text/css">
-		<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+       
+      
 		
 	<!-- JS -->
 
+		<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
+		<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
 		<script src="../js/SpryAssets/SpryValidationTextField.js" type="text/javascript"></script>
 		<script src="../js/SpryAssets/SpryValidationSelect.js" type="text/javascript"></script>
 		<script src="../js/SpryAssets/SpryValidationTextarea.js" type="text/javascript"></script>
 		<script src="../js/SpryAssets/SpryValidationCheckbox.js" type="text/javascript"></script>
-		<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-		<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script> 
-
-<script>
+        <script src="../js/jquery-1.6.min.js" type="text/javascript"></script>
+		<script src="../js/languages/jquery.validationEngine-en.js" type="text/javascript" charset="utf-8"></script>
+		<script src="../js/jquery.validationEngine.js" type="text/javascript" charset="utf-8"></script>
+        <script type='text/javascript' src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+		<script type='text/javascript' src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/additional-methods.js"></script>
+         <script type='text/javascript' src='http://code.jquery.com/jquery-1.8.3.js'></script>
+		
+		<script>
   $(function() {
     $( document ).tooltip();
   });
   </script>
  
-  <script>
+<script>
   $(function() {
     $( "#datepicker" ).datepicker();
   });
   </script>
+  
+  <style type='text/css'>
+    a {
+    display: block;
+    position: absolute;
+    bottom: 0;
+}
+  </style>
+  
+<script>
+$(document).ready(function () {
+
+    $('#myform').validate({
+        rules: {
+            original_officer: {
+                require_from_group: [1, '.require-one']
+            },
+			renewal_officer: {
+                require_from_group: [1, '.require-one']
+            },
+            duplicate_officer: {
+                require_from_group: [1, '.require-one']
+            },
+			raise_officer: {
+                require_from_group: [1, '.require-one']
+            },
+			increase_officer: {
+                require_from_group: [1, '.require-one']
+            },
+			continuity_officer: {
+                require_from_group: [1, '.require-one']
+            },
+			original_qr: {
+                require_from_group: [1, '.require-one']
+            },
+			renewal_qr: {
+                require_from_group: [1, '.require-one']
+            },
+			duplicate_qr: {
+                require_from_group: [1, '.require-one']
+            },
+			raise_qr: {
+                require_from_group: [1, '.require-one']
+            },
+			increase_qr: {
+                require_from_group: [1, '.require-one']
+            },
+			continuity_qr: {
+                require_from_group: [1, '.require-one']
+            },
+			
+			original_entry: {
+                require_from_group: [1, '.require-one']
+            },
+			
+			renewal_entry: {
+                require_from_group: [1, '.require-one']
+            },
+			
+			duplicate_entry: {
+                require_from_group: [1, '.require-one']
+            },
+			original_stcw: {
+                require_from_group: [1, '.require-one']
+            },
+			renewal_stcw: {
+                require_from_group: [1, '.require-one']
+            },
+			duplicate_stcw: {
+                require_from_group: [1, '.require-one']
+            },
+			raise_stcw: {
+                require_from_group: [1, '.require-one']
+            },
+			increase_stcw: {
+                require_from_group: [1, '.require-one']
+            },
+			
+        },
+  		
+		groups: {
+            checks: "original_officer renewal_officer  duplicate_officer  raise_officer increase_officer  continuity_officer original_qr renewal_qr duplicate_qr raise_qr increase_qr continuity_qr original_entry renewal_entr uplicate_entry original_stcw renewal_stcw duplicate_stcw raise_stcw increase_stcw"
+        },
+        submitHandler: function (form) { 
+            alert('valid form');
+            return false;
+        }
+    });
+
+});
+</script>
 
 </head>
+<!-- Body -->
+
 <body>
+
+<!-- Outside Container -->
 
 <div class="container_12">
 
-<div class="standard">
-
-	<div class="content">
+	<div class="standard">
   
-  <form name="719B" method="post" action="/posts/p_add">
+  	<form  action="/posts/p_add" method="post" enctype="multipart/form-data" name="719B" id="myform">
    		  
-   <table>
-            <tr>
-            <td colspan="7" style="text-align:center">
-            <div>
-              <strong>DEPARTMENT OF HOMELAND SECURITY</strong>
-              </div>
-              <div>
+   	<table>
+    	<tr>
+           	<td colspan="7" style="text-align:center">
+            	<div>
+              	<strong>DEPARTMENT OF HOMELAND SECURITY</strong>
+              	</div>
+              	<div>
                 <strong>U.S. COAST GUARD</strong>
-              </div>
-              <div>
+              	</div>
+              	<div>
                 <strong>MERCHANT MARINER CREDENTIAL APPLICATION</strong>
-              </div>
-              </td>
+              	</div>
+           </td>
+        </tr>
             
-            </tr>
-            
-   		    <tr>
-   		      <th colspan="7" style="height:25px; vertical-align:central;">Section I - Personal Data</th>
-	        </tr>
-   		    <tr>
-   		      <td colspan="7" >
-              <div><strong>1. Legal Name (Last, First, Middle, Suffix) (Alias(es) 0r Maiden Name(s) if applicable):</strong></div>
+   		<tr>
+   		   	<th colspan="7" style="height:25px; vertical-align:central;">Section I - Personal Data</th>
+	    </tr>
+   		    
+        <tr>
+   		  	<td colspan="7" >
+              	<div><strong>1. Legal Name (Last, First, Middle, Suffix) (Alias(es) 0r Maiden Name(s) if applicable):</strong>
+                </div>
               
               	<div class="float_left" style="width:17%; max-width:162px">  
                   <span id="sprytextfield2">
-   		          <label>First Name:<br/>
-   		            <input name="first_name" type="text" id="first_name" size="19" title="Enter your First Name">
-	              </label><br/>
-   		          <span class="textfieldRequiredMsg">Please enter your first name.</span></span>
+                  <label>First Name:<br/>
+                    <input name="first_name" type="text" id="first_name" size="19" title="Enter your First Name">
+                  </label>
+                  <br/>
+                  <span class="textfieldRequiredMsg">Please enter your first name.</span><span class="textfieldMinCharsMsg">Minimum number of characters not met.</span><span class="textfieldMaxCharsMsg">Exceeded 40 characters.</span></span>
                 </div>
                           
-                <div class="float_left" style="width:17%; max-width:162px">  
+                
+              <div class="float_left" style="width:17%; max-width:162px">  
                   <span id="sprytextfield3">
-   		          <label>Middle Name:<br/>
-   		            <input name="middle_name" type="text" id="middle_name" size="19" title="Enter your Middle name">
-				  </label>
+   		          	<label>Middle Name:<br/>
+                    <input name="middle_name" type="text" id="middle_name" size="19" title="Enter your Middle name">
+                  <span class="textfieldMaxCharsMsg">Exceeded 30 characters.</span>
+                  </label>
 				  </span>
                 </div>
                   
                 <div class="float_left" style="width:28.5%; max-width:272px;">  
-            <span id="sprytextfield1">
-   		          <label>Last Name:<br/>
-   		            <input name="last_name" type="text" id="last_name" size="35" title="Enter your Last Name">
-	              </label><br/>
-                  
-   		          <span class="textfieldRequiredMsg">Pleas enter your last name.</span></span>
+            	<span id="sprytextfield1">
+            		<label>Last Name:<br/>
+              		<input name="last_name" type="text" id="last_name" size="35" title="Enter your Last Name">
+            		</label><br/>
+            	<span class="textfieldRequiredMsg">Pleas enter your last name.</span><span class="textfieldMinCharsMsg">Minimum number of characters not met.</span><span class="textfieldMaxCharsMsg">Exceeded 40 maximum number of characters.</span></span>
                 </div>
                   
                 <div class="float_left" style="width:11%; max-width:110px">  
-              <span id="sprytextfield10">
-                  <label>Suffix:<br/>
+              	<span id="sprytextfield10">
+                  	<label>Suffix:<br/>
                     <input name="suffix" type="text" id="suffix" size="10" title="Enter your suffix (sr, jr, I, II, III)">
-</label><br/>
-</span>
-              
-                </div>
+                <span class="textfieldMaxCharsMsg">Exceeded 15 characters.</span></label></span><br/>
+              	</div>
                  
                 <div class="float_left" style="width:25%; max-width:240px">  
-   		          <span id="sprytextfield4">
-   		          <label>Alias(es):<br />
-   		          <input name="alias" type="text" id="alias" size="30" title="If your name change please list any aliases">
-	              </label>
-					</span>
-          </div>
-	         
-              </td>
-	        </tr>
-   		    <tr>
-   		      <td colspan="7"> 
-                  
-                  <div class="float_left" style="width:23%;">  
-              <strong>2a. Social Security #:</strong><br />
+   		         <span id="sprytextfield4">
+   		          	<label>Alias(es):<br />
+                    <input name="alias" type="text" id="alias" size="30" title="If your name change please list any aliases">
+                 <span class="textfieldMaxCharsMsg">Exceeded 50 characters.</span></label></span>
+          		</div>
+	         </td>
+	    </tr>
+   		  
+        <tr>
+   		     <td colspan="7"> 
+                <div class="float_left" style="width:23%;">  
+              	<strong>2a. Social Security #:</strong><br />
    		        <span id="sprytextfield9">
-                <input name="ssn" type="text" id="ssn" title="Social Security Number  000-00-0000" maxlength="11">
+                	<input name="ssn" type="text" id="ssn" title="Social Security Number  000-00-0000" maxlength="11">
                 <br />
                 <span class="textfieldRequiredMsg">Please enter your social security number.</span><span class="textfieldInvalidFormatMsg">Invalid format.</span></span>
                </div>
@@ -129,28 +231,26 @@
               <span id="sprytextfield11">
               <input type="text" name="ref_num" id="ref_num" title="Please enter a reference number (if applicable)">
               <span class="textfieldInvalidFormatMsg">Invalid format.</span><br />
-</span>
+              <span class="textfieldMinCharsMsg">Minimum number of characters not met.</span><span class="textfieldMaxCharsMsg">Exceeded 11 characters.</span></span>
                </div>
                
                   <div class="float_left" style="width:29%;">  
                <strong>2c. Alien Registration #</strong>:<br /> <span id="sprytextfield6">
-	              <input type="text" name="arn" id="arn" title="If you are not a citizen please enter your ARN.">
-	              <span class="textfieldInvalidFormatMsg">Invalid format.</span><br />
-			  </span>
+               <input type="text" name="arn" id="arn" title="If you are not a citizen please enter your ARN.">
+               <span class="textfieldInvalidFormatMsg">Invalid format.</span><br />
+               <span class="textfieldMaxCharsMsg">Exceeded 11 characters.</span></span>
                </div>
                
                   <div class="float_left" style="width:23%;">  
              <strong> 3. Date of Birth </strong><br />
-   		        
-	          <span id="sprytextfield7">
-              <input type="text" name="birthdate" id="datepicker">
-              <br />
-              <span class="textfieldRequiredMsg">Please enter your date of birth.</span><span class="textfieldInvalidFormatMsg">Format must be dd/mm/yyyy.</span></span>
-              </div></td>
-	        </tr>
-   		    <tr class="clear">
-   		      <td colspan="7" >
-                  
+             <span id="sprytextfield7">
+             <label for="datepicker"></label>
+             <input type="text" name="birthdate" id="datepicker"><br />
+             <span class="textfieldRequiredMsg">A value is required.</span><span class="textfieldInvalidFormatMsg">Invalid format.</span></span> </div></td>
+	    </tr>
+   		    
+        <tr class="clear">
+   		      <td colspan="7">
                   <div class="float_left" style="width:32%">
                   <span id="spryselect2">
    		        <label><strong>4. Citizenship/Nationality:&nbsp;</strong></label> <br/>
@@ -401,12 +501,13 @@
                     <span class="selectRequiredMsg">Please select a country.</span></span> 
                 </div>
                 
-                  <div class="float_left" style="width:21%">  
+        <div class="float_left" style="width:21%">  
                 <span id="sprytextfield8">
-   		        <label><strong>5a. Birth City:</strong><br />
-				<input type="text" name="birthplace" id="birthplace" title="Enter a city where you were born." size="24">
- 		          </label><br/>
-   		        <span class="textfieldRequiredMsg">Please enter your birth city.</span></span> 
+                <label><strong>5a. Birth City:</strong><br />
+                  <input type="text" name="birthplace" id="birthplace" title="Enter a city where you were born." size="24">
+                </label>
+                <br/>
+                <span class="textfieldRequiredMsg">Please enter your birth city.</span><span class="textfieldMinCharsMsg">Minimum number of characters not met.</span><span class="textfieldMaxCharsMsg">Exceeded 30 characters.</span></span> 
                 </div>
                 
                   <div class="float_left" style="width:15.5%">  
@@ -721,7 +822,8 @@
                 
               </td>
 	        </tr>
-   		    <tr class="clear">
+   		    
+        <tr class="clear">
    		      <td colspan="7" >
               
                  <div class="float_left" style="width:35%">
@@ -736,7 +838,7 @@
    		          		<option value="green">Green</option>
    		          		<option value="hazel">Hazel</option>
    		          		<option value="red">Red</option>
-                        </select>
+                        </select><br />
               		<span class="selectRequiredMsg">Please select an item.</span></span></div>
               
               <div class="float_left" style="width:35%">
@@ -751,31 +853,34 @@
 	            	<option value="brown">Brown</option>
 	            	<option value="grey">Grey</option>
 	            	<option value="silver">Silver</option>
-                    </select>
+                    </select><br />
 	          	<span class="selectRequiredMsg">Please select an item.</span></span></div> </td>
 	        </tr>
    		    
-            <tr>
+        <tr>
    		      <th colspan="7" >Mariner Information:  (Click here for further instructions)</th>
 	        </tr>
    		    
-            <tr>
+        <tr>
    		      <td colspan="7" >
               <div><strong>6a. Home Address (PO Box NOT acceptable):</strong></div>
                   
                   <div class="float_left" style="width:43%"> 
                   <span id="sprytextfield14">
-   		        <label for="address">Street Address:</label> 
-   		       <br/>
-   		        <input name="address" type="text" id="address" size="60" title="Enter your physical address - no P.O. Box."><br/>
-	          <span class="textfieldRequiredMsg">Please enter your address.</span></span>
+                  <label for="address">Street Address:</label>
+                  <br/>
+                  <input name="address" type="text" id="address" size="60" title="Enter your physical address - no P.O. Box.">
+                  <br/>
+                  <span class="textfieldRequiredMsg">Please enter your address.</span><span class="textfieldMinCharsMsg">Minimum number of characters not met.</span><span class="textfieldMaxCharsMsg">Exceeded 40  characters.</span></span>
                  </div>
                  
                   <div class="float_left" style="width:24%"> 
               		<span id="sprytextfield15">
-	          			<label for="city">City:</label><br/>
-	          			<input name="city" type="text" id="city" size="30" title="Enter your city"><br/>
-	          		<span class="textfieldRequiredMsg">Please enter your city.</span></span>
+                    <label for="city">City:</label>
+                    <br/>
+                    <input name="city" type="text" id="city" size="30" title="Enter your city">
+                    <br/>
+                    <span class="textfieldRequiredMsg">Please enter your city.</span><span class="textfieldMinCharsMsg">Minimum number of characters not met.</span><span class="textfieldMaxCharsMsg">Exceeded 30 characters.</span></span>
                  </div>
                  
                   <div class="float_left" style="width:15%"> 
@@ -847,22 +952,22 @@
               </td>
 	        </tr>
    		    
-            <tr class="clear">
+        <tr class="clear">
    		      <td colspan="7" >
               <div><strong>6b. Delivery Address, if different:</strong> <strong>(PO BOX acceptable):</strong></div>
                  
                 <div class="float_left" style="width:43%">
                   <span id="sprytextfield17"> 
    		        	<label for="delivery_address">Street:</label><br/>
-   		        	<input name="delivery_address" type="text" id="delivery_address" size="60" title="Secondary Address or P.O. Box">
-				  </span>
+                    <input name="delivery_address" type="text" id="delivery_address" size="60" title="Secondary Address or P.O. Box">
+                  <span class="textfieldMaxCharsMsg">Exceeded 30 characters.</span></span>
                 </div>
                 
                   <div class="float_left" style="width:24%">
                   	<span id="sprytextfield18"> 
 	          		<label for="delivery_city">City:</label><br/>
-	          		<input name="delivery_city" type="text" id="delivery_city" size="30" title="Enter your city">
-					</span>
+                    <input name="delivery_city" type="text" id="delivery_city" size="30" title="Enter your city">
+                    <span class="textfieldMaxCharsMsg">Exceeded 30 characters.</span></span>
                 </div>
                 
                   <div class="float_left" style="width:15%"> 
@@ -934,7 +1039,7 @@
             </td>
 	        </tr>
    		    
-            <tr class="clear">
+        <tr class="clear">
    		      <td colspan="7" >
                   <div class="float_left" style="width:25%"> 
                   	<span id="sprytextfield20">
@@ -953,41 +1058,41 @@
                   <div class="float_left" style="width:48%"> 
               		<span id="sprytextfield22">
               		<label for="email"><strong>6e. E-mail:</strong></label><br/>
-              		<input name="email" type="text" id="email" size="60" title="Enter your email">
+              		<input name="email" type="text" id="email" size="60" title="Enter your email"><br />
               		<span class="textfieldRequiredMsg">Please enter your email.</span><span class="textfieldInvalidFormatMsg">Invalid format.</span></span>
               	  </div>
               </td>
 	        </tr>
    		    
-            <tr class="clear">
+        <tr class="clear">
    		      <th colspan="7" ><strong>Emergency Contact</strong></th>
 	        </tr>
    		    
-            <tr>
+        <tr>
    		      <td colspan="7" >
               <strong>7a. Emergency Contact name and address:</strong>
 
-                  <div class="float_left" style="width:100%">
-                  	<span id="sprytextfield5">
+                <div class="float_left" style="width:100%">
+               	  <span id="sprytextfield5">
                     <label for="emergency_contact"> Full Name</label>
                     <br/>
-                    <input type="text" name="emergency_contact" id="emergency_contact" title="Emergency contact's full name" size="108">
-                    <br/>
-                    <span class="textfieldRequiredMsg">Please enter your emergency contact.</span><span class="textfieldMinCharsMsg">Minimum number of characters not met.</span></span>
+                    <input type="text" name="emergency_contact" id="emergency_contact" title="Emergency contact's full name" size="95">
+                    <span class="textfieldRequiredMsg">Please enter your emergency contact.</span><span class="textfieldMinCharsMsg">Minimum number of characters not met.</span><span class="textfieldMaxCharsMsg">Exceeded 40 characters.</span></span>
                  </div>
 
-                  <div class="float_left" style="width:43%"> 
-                   	<span id="sprytextarea1">
-	          		<label for="street"> Street Address:</label><br />
-                	<input name="street" type="text" id="street" value="" size="60" title="Emergency contact street"><br />
-	          		<span class="textareaRequiredMsg">A value is required.</span></span> 
-                </div>
+                  <div class="float_left" style="width:43%">
+                    <span id="sprytextfield12">
+                    <label for="street">Street:</label><br />
+                    <input name="street" type="text" id="street" size="60"><br />
+                <span class="textfieldRequiredMsg">Please enter a street.</span><span class="textfieldMinCharsMsg">Minimum number of characters not met.</span><span class="textfieldMaxCharsMsg">Exceeded 40 maximum number of characters.</span></span> </div>
                    
                   <div class="float_left" style="width:24%"> 
               		<span id="sprytextfield24">
-	          		<label for="city_emergency_contact">City:</label><br />
-	          		<input name="city_emergency_contact" type="text" id="city_emergency_contact" size="30" title="Emergency contact city"><br />
-	          		<span class="textfieldRequiredMsg">Please enter a city.</span></span> 
+                    <label for="city_emergency_contact">City:</label>
+                    <br />
+                    <input name="city_emergency_contact" type="text" id="city_emergency_contact" size="30" title="Emergency contact city">
+                    <br />
+                    <span class="textfieldRequiredMsg">Please enter a city.</span><span class="textfieldMinCharsMsg">Minimum number of characters not met.</span><span class="textfieldMaxCharsMsg">Exceeded maximum number of characters.</span></span> 
                   </div>
                   
                   <div class="float_left" style="width:15%"> 
@@ -1055,46 +1160,47 @@
               		<span id="sprytextfield25">
               		<label for="zip_emergency_contact">Zip Code:</label><br />
               		<input name="zip_emergency_contact" type="text" id="zip_emergency_contact" size="20" title="Emergency contact zip code (12345).">
-              		<span class="textfieldRequiredMsg">A value is required.</span><span class="textfieldInvalidFormatMsg">Please enter a zip code.</span></span>
+              		<span class="textfieldRequiredMsg">Please enter a zip code.</span><span class="textfieldInvalidFormatMsg">Please enter a zip code.</span></span>
               	 </div>
               </td>
 	        </tr>
    		    
-            <tr class="clear">
+        <tr class="clear">
    		      <td colspan="7" >
                  
                   <div class="float_left" style="width:24%">
               		<span id="sprytextfield26">
-   		        	<label for="relationship"><strong>7b. Relationship:</strong></label><br/>
-   		        	<input name="relationship" type="text" id="relationship" size="30" title="What is their relationship with you">
-	         		<span class="textfieldRequiredMsg">Please enter your relationship.</span></span>
+                    <label for="relationship"><strong>7b. Relationship:</strong></label>
+                    <br/>
+                    <input name="relationship" type="text" id="relationship" size="30" title="What is their relationship with you"><br />
+                    <span class="textfieldRequiredMsg">Please enter your relationship.</span><span class="textfieldMinCharsMsg">Minimum number of characters not met.</span><span class="textfieldMaxCharsMsg">Exceeded 30  characters.</span></span>
                   </div>
                   
                   <div class="float_left" style="width:17%">
                   	<span id="sprytextfield27">
                   	<label for="contact_phone"><strong>7c. Phone:</strong></label><br/>
-                    <input type="text" name="contact_phone" id="contact_phone" title="Emergency contact primary phone (000) 000-0000">
+                    <input type="text" name="contact_phone" id="contact_phone" title="Emergency contact primary phone (000) 000-0000"><br />
                  	<span class="textfieldRequiredMsg">Please enter a phone number.</span><span class="textfieldInvalidFormatMsg">Please enter correct format.</span></span>
                   </div>
                   
                   <div class="float_left" style="width:17%">
                   	<span id="sprytextfield28">
 	          		<label for="contact_cell"><strong>7d. Cell Phone:</strong></label><br/>
-              		<input type="text" name="contact_cell" id="contact_cell" title="Emergency contact's secondary phone">
+              		<input type="text" name="contact_cell" id="contact_cell" title="Emergency contact's secondary phone"><br />
               		<span class="textfieldInvalidFormatMsg">Please enter a phone number.</span></span>
                  </div>
                  
                   <div class="float_left" style="width:42%">
 			  		<span id="sprytextfield29">
-              		<label for="contact_email"><strong>7e. E-mail:</strong></label><br />
-              		<input name="contact_email" type="text" id="contact_email" size="57" title="Emergency contact's email">
-            		<span class="textfieldRequiredMsg">Please enter a email.</span>
-              		<span class="textfieldInvalidFormatMsg">Must enter valid e-mail format.</span></span>
+                    <label for="contact_email"><strong>7e. E-mail:</strong></label>
+                    <br />
+                    <input name="contact_email" type="text" id="contact_email" size="57" title="Emergency contact's email"><br />
+                    <span class="textfieldRequiredMsg">Please enter a email.</span> <span class="textfieldInvalidFormatMsg">Must enter valid e-mail format.</span><span class="textfieldMinCharsMsg">Minimum number of characters not met.</span><span class="textfieldMaxCharsMsg">Exceeded maximum number of characters.</span></span>
                   </div>
               </td>
 	        </tr>
    		    
-            <tr class="clear">
+        <tr class="clear">
    		      <th colspan="7" style="height:25px; vertical-align:central">
    		        <div>Section II - Coast Guard Credential(s) or Endorsement Type(s) Requested: (Check all that apply)<br>
    		        </div>
@@ -1103,132 +1209,138 @@
    		    
         <tr>
               <th>Endorsement Categories:</th>
-              <th>Original:</th>
-   		      <th>Renewal</th>
-   		      <th>Duplicate</th>
-   		      <th>Raise in Grade</th>
-   		      <th>Increase in Scope</th>
-	      <th>Document of Continuity</th>
+              <th style="text-align:center">Original:</th>
+   		      <th style="text-align:center">Renewal</th>
+   		      <th style="text-align:center">Duplicate</th>
+   		      <th style="text-align:center">Raise in Grade</th>
+   		      <th style="text-align:center">Increase in Scope</th>
+	      	  <th style="text-align:center">Document of Continuity</th>
 	    </tr>
+        
+       
         <tr>
-              <th><strong>Officer:</strong>    </th>        
-              <td style="text-align:center"><input type="checkbox" name="original_officer" id="original_officer" title="Original Officer's Endorcement only"></td>        
-              <td style="text-align:center"><input type="checkbox" name="renewal_officer" id="renewal_officer" title="Renewing Qualified Ratings only"></td>      
-              <td style="text-align:center"><input type="checkbox" name="duplicate_officer" id="duplicate_officer" title="Duplication of credential"></td>
-              <td style="text-align:center"><input type="checkbox" name="raise_officer" id="raise_officer" title="Original Raise in Grade only"></td>
-              <td style="text-align:center"><input type="checkbox" name="increase_officer" id="increase_officer" title="Increase in Scope"></td>
-              <td style="text-align:center"><input type="checkbox" name="continuity_officer" id="continuity_officer" title="Document of Continuity"></td>
+        
+           <th><strong>Officer:</strong></th>       
+            <td style="text-align:center"><input type="checkbox" id="check0" name="original_officer" 	value="original_officer" class="require-one" /></td>
+            <td style="text-align:center"><input type="checkbox" id="check1" name="renewal_officer" 	value="renewal_officer" class="require-one" /></td>
+            <td style="text-align:center"><input type="checkbox" id="check2" name="duplicate_officer" 	value="duplicate_officer" class="require-one" /></td>
+            <td style="text-align:center"><input type="checkbox" id="check3" name="raise_officer" 		value="raise_officer" class="require-one" /></td>
+            <td style="text-align:center"><input type="checkbox" id="check4" name="increase_officer" 	value="increase_in_scope" class="require-one" /></td>
+            <td style="text-align:center"><input type="checkbox" id="check5" name="continuity_officer" 	value="continuity_officer" class="require-one" /></td>
+              
         </tr>  
                         
         <tr>
-              <th><strong>Qualified Ratings:</strong>   </th>         
-              <td style="text-align:center"><input type="checkbox" name="original_qr" id="original_qr" title="Original Qualified Ratings only"></td>        
-              <td style="text-align:center"><input type="checkbox" name="renewal_qr" id="renewal_qr" title="Renewing a Qualified Rating"></td>      
-              <td style="text-align:center"><input type="checkbox" name="duplicate_qr" id="duplicate_qr" title="Duplicating a Qualified rating"></td>
-              <td style="text-align:center"><input type="checkbox" name="raise_qr" id="raise_qr" title="Qualified rating Riase in Grade"></td>
-              <td style="text-align:center"><input type="checkbox" name="increase_qr" id="increase_qr" title="Qualified Rating Increase of Scope"></td>
-              <td style="text-align:center"><input type="checkbox" name="continuity_qr" id="continuity_qr" title="Document of Contity Qualified Rating" ></td>
+          <th><strong>Qualified Ratings:</strong>   </th> 
+          	<td style="text-align:center"><input type="checkbox" id="check6" name="original_qr" 		value="original_qr" 	class="require-one" /></td>
+            <td style="text-align:center"><input type="checkbox" id="check7" name="renewal_qr" 			value="renewal_qr" 		class="require-one" /></td>
+            <td style="text-align:center"><input type="checkbox" id="check8" name="duplicate_qr" 		value="duplicate_qr" 	class="require-one" /></td>
+            <td style="text-align:center"><input type="checkbox" id="check9" name="raise_qr" 			value="raise_qr" 		class="require-one" /></td>
+            <td style="text-align:center"><input type="checkbox" id="check10" name="increase_qr" 		value="increase_qr" 	class="require-one" /></td>
+            <td style="text-align:center"><input type="checkbox" id="check11" name="continuity_qr" 		value="continuity_qr" 	class="require-one" /></td>
         </tr>
+        
         <tr>
-              <th><strong>Entry Level:</strong>    </th>        
-              <td style="text-align:center"><input type="checkbox" name="original_entry" id="original_entry"></td>        
-              <td style="text-align:center"><input type="checkbox" name="renewal_entry" id="renewal_entry"></td>      
-              <td style="text-align:center"><input type="checkbox" name="duplicate_entry" id="duplicate_entry"></td>
-
-              <td style="background-color:#bbb">&nbsp;</td> 
-              <td style="background-color:#bbb">&nbsp;</td> 
-              <td style="background-color:#bbb">&nbsp;</td> 
+           <th><strong>Entry Level:</strong></th>        
+           <td style="text-align:center"><input type="checkbox" id="check12" name="original_entry" 		value="original_entry" 	class="require-one" /></td>
+           <td style="text-align:center"><input type="checkbox" id="check13" name="renewal_entry" 		value="renewal_entry" 	class="require-one" /></td>
+           <td style="text-align:center"><input type="checkbox" id="check14" name="duplicate_entry" 	value="duplicate_entry" class="require-one" /></td> 
+           <td style="background-color:#bbb">&nbsp;</td> 
+           <td style="background-color:#bbb">&nbsp;</td> 
+           <td style="background-color:#bbb">&nbsp;</td> 
         </tr>
+        
         <tr>
-              <th><strong>STCW:</strong>         </th>   
-              <td style="text-align:center"><input type="checkbox" name="original_stcw" id="original_stcw" title="Original STCW"></td>        
-              <td style="text-align:center"><input type="checkbox" name="renewal_stcw" id="renewal_stcw" title="Renewing STCW"></td>      
-              <td style="text-align:center"><input type="checkbox" name="duplicate_stcw" id="duplicate_stcw" title="Duplicating an STCW"></td>
-              <td style="text-align:center"><input type="checkbox" name="raise_stcw" id="raise_stcw" title="Raise in Grade for STCW"></td>
-              <td style="text-align:center"><input type="checkbox" name="increase_stcw" id="increase_stcw" title="Increase in Scope for STCW"></td>
-
+              <th><strong>STCW:</strong></th>
+              <td style="text-align:center"><input type="checkbox" id="check15" name="original_stcw" 	value="original_stcw" 	class="require-one" /></td>
+              <td style="text-align:center"><input type="checkbox" id="check16" name="renewal_stcw" 	value="renewal_stcw" 	class="require-one" /></td>
+              <td style="text-align:center"><input type="checkbox" id="check17" name="duplicate_stcw" 	value="duplicate_stcw" 	class="require-one" /></td>
+              <td style="text-align:center"><input type="checkbox" id="check18" name="raise_stcw" 		value="raise_stcw" 		class="require-one" /></td>
+              <td style="text-align:center"><input type="checkbox" id="check19" name="increase_stcw" 	value="increase_stcw" 	class="require-one" /></td> 
               <td style="background-color:#bbb">&nbsp;</td> 
+        
         </tr>
-	    <tr>
+	   
+        <tr>
    		      <td colspan="7" >
    		        <div><strong>Description of Endorsement(s) Desired:</strong> Include all appropriate information - Officer (i.e. deck - Master/Mate?propulsion/Tonnage//Route OR Engineer Grade - 3rd AE; DDE/Propulsion/Horsepower) Ratings (i.e.: Able Seaman, Tankerman, QMED, Lifeboatman)
                </div>
 
              	<span id="sprytextarea2">
                 <label for="description"></label>
-                <textarea name="description" id="description" cols="115" rows="5"></textarea>
-                <span class="textareaRequiredMsg">A value is required.</span><span class="textareaMinCharsMsg">Minimum number of characters not met.</span><span class="textareaMaxCharsMsg">Exceeded maximum number of characters.</span></span><br />
+                <textarea name="description" id="description" cols="115" rows="5"></textarea><br />
+                <span class="textareaRequiredMsg">A value is required.</span><span class="textareaMinCharsMsg">Minimum number of characters not met.</span><span class="textareaMaxCharsMsg">Exceeded 400 maximum number of characters.</span></span><br />
               <span class="textareaMinCharsMsg">Minimum number of characters not met.</span></td>
         </tr>
    		    
-            <tr>
+        <tr>
    		      <td colspan="7" ><strong><span id="sprycheckbox1">
               <input type="checkbox" name="renewal_transaction" id="renewal_transaction" title="Renewal transaction only!">
               <label for="renewal_transaction"></label>
               <span class="checkboxMinSelectionsMsg">Minimum number of selections not met.</span><span class="checkboxMaxSelectionsMsg">Maximum number of selections exceeded.</span></span>
               FOR RENEWAL TRANSACTIONS ONLY:</strong> I request to have my merchant mariner credential (MMC) issued immediately and decline having its issuance coincide with my previous credentials expiration date.             
               </td>
-	        </tr>
-   		    
-            <tr>
+	    </tr>
+            		    
+        <tr>
    		      <td colspan="7" style="background-color:#000;"><div class="centered">
               	<input type="reset" id="reset" value="Reset"> 
 	            <input type="submit" id="print" value="Print">
 	            <input type="submit" value="Submit"></div>
                
               </td>
-	        </tr>
-            <tr class="clear">
-              	<td colspan="7">
-     			</td>
-            </tr>
+	    </tr>
+            
+        <tr class="clear">
+            <td colspan="7"></td>
+        </tr>
+      
       </table>
  </form>
-    
-<!-- end .content --></div>
-  
-  <!-- end .standard --></div>
-  
-  <!-- container_12 --></div>
+ <a href="http://docs.jquery.com/Plugins/Validation" target="_blank">Validation Documentation</a>
+</div>
+
+</div>
+  	
   
 <script type="text/javascript">
-var sprytextfield14 = new Spry.Widget.ValidationTextField("sprytextfield14");
-var sprytextfield15 = new Spry.Widget.ValidationTextField("sprytextfield15");
+var sprytextfield14 = new Spry.Widget.ValidationTextField("sprytextfield14", "none", {hint:"Physical Address", minChars:1, maxChars:40});
+var sprytextfield15 = new Spry.Widget.ValidationTextField("sprytextfield15", "none", {minChars:1, maxChars:30, hint:"City"});
 var spryselect3 = new Spry.Widget.ValidationSelect("spryselect3");
-var sprytextfield16 = new Spry.Widget.ValidationTextField("sprytextfield16", "zip_code");
-var sprytextfield17 = new Spry.Widget.ValidationTextField("sprytextfield17", "none", {isRequired:false});
-var sprytextfield18 = new Spry.Widget.ValidationTextField("sprytextfield18", "none", {isRequired:false});
-var sprytextfield19 = new Spry.Widget.ValidationTextField("sprytextfield19", "zip_code", {isRequired:false});
-var sprytextfield20 = new Spry.Widget.ValidationTextField("sprytextfield20", "phone_number", {hint:"(000) 000-0000"});
-var sprytextfield21 = new Spry.Widget.ValidationTextField("sprytextfield21", "phone_number", {isRequired:false, hint:"(000) 000-0000"});
-var sprytextfield22 = new Spry.Widget.ValidationTextField("sprytextfield22", "email", {hint:"name@email.com"});
-var sprytextarea1 = new Spry.Widget.ValidationTextarea("sprytextarea1");
-var sprytextfield24 = new Spry.Widget.ValidationTextField("sprytextfield24", "none", {hint:"City"});
+var sprytextfield16 = new Spry.Widget.ValidationTextField("sprytextfield16", "zip_code", {hint:"22655", useCharacterMasking:true});
+var sprytextfield17 = new Spry.Widget.ValidationTextField("sprytextfield17", "none", {isRequired:false, hint:"Street or P.O. Box", maxChars:40});
+var sprytextfield18 = new Spry.Widget.ValidationTextField("sprytextfield18", "none", {isRequired:false, hint:"City", maxChars:30});
+var sprytextfield19 = new Spry.Widget.ValidationTextField("sprytextfield19", "zip_code", {isRequired:false, hint:"22655", useCharacterMasking:true});
+var sprytextfield20 = new Spry.Widget.ValidationTextField("sprytextfield20", "phone_number", {hint:"(000) 000-0000", useCharacterMasking:true});
+var sprytextfield21 = new Spry.Widget.ValidationTextField("sprytextfield21", "phone_number", {isRequired:false, hint:"(000) 000-0000", useCharacterMasking:true});
+var sprytextfield22 = new Spry.Widget.ValidationTextField("sprytextfield22", "email", {hint:"name@email.com", useCharacterMasking:true});
+var sprytextfield24 = new Spry.Widget.ValidationTextField("sprytextfield24", "none", {hint:"City", minChars:1, maxChars:40});
 var spryselect5 = new Spry.Widget.ValidationSelect("spryselect5");
-var sprytextfield25 = new Spry.Widget.ValidationTextField("sprytextfield25", "zip_code");
-var sprytextfield26 = new Spry.Widget.ValidationTextField("sprytextfield26");
-var sprytextfield27 = new Spry.Widget.ValidationTextField("sprytextfield27", "phone_number", {hint:"(000) 000-0000"});
-var sprytextfield28 = new Spry.Widget.ValidationTextField("sprytextfield28", "phone_number", {isRequired:false});
-var sprytextfield29 = new Spry.Widget.ValidationTextField("sprytextfield29", "email");
-var sprytextfield1 = new Spry.Widget.ValidationTextField("sprytextfield1", "none", {hint:"Last Name"});
-var sprytextfield2 = new Spry.Widget.ValidationTextField("sprytextfield2", "none", {hint:"First Name"});
-var sprytextfield3 = new Spry.Widget.ValidationTextField("sprytextfield3", "none", {isRequired:false, hint:"Middle Name"});
-var sprytextfield4 = new Spry.Widget.ValidationTextField("sprytextfield4", "none", {isRequired:false, hint:"Former name"});
-var sprytextfield6 = new Spry.Widget.ValidationTextField("sprytextfield6", "integer", {isRequired:false, hint:"numbers only"});
-var sprytextfield7 = new Spry.Widget.ValidationTextField("sprytextfield7", "date", {format:"dd/mm/yyyy", hint:"dd/mm/yyyy", useCharacterMasking:true});
+var sprytextfield25 = new Spry.Widget.ValidationTextField("sprytextfield25", "zip_code", {hint:"22655", useCharacterMasking:true});
+var sprytextfield26 = new Spry.Widget.ValidationTextField("sprytextfield26", "none", {minChars:1, maxChars:30, hint:"Family Relationship"});
+var sprytextfield27 = new Spry.Widget.ValidationTextField("sprytextfield27", "phone_number", {hint:"(000) 000-0000", useCharacterMasking:true});
+var sprytextfield28 = new Spry.Widget.ValidationTextField("sprytextfield28", "phone_number", {isRequired:false, hint:"(000) 000-0000", useCharacterMasking:true});
+var sprytextfield29 = new Spry.Widget.ValidationTextField("sprytextfield29", "email", {hint:"name@email.com", minChars:1, maxChars:40, useCharacterMasking:true});
+var sprytextfield1 = new Spry.Widget.ValidationTextField("sprytextfield1", "none", {hint:"Last Name", minChars:1, maxChars:40});
+var sprytextfield2 = new Spry.Widget.ValidationTextField("sprytextfield2", "none", {hint:"First Name", minChars:1, maxChars:40});
+var sprytextfield3 = new Spry.Widget.ValidationTextField("sprytextfield3", "none", {isRequired:false, hint:"Middle Name", maxChars:30});
+var sprytextfield4 = new Spry.Widget.ValidationTextField("sprytextfield4", "none", {isRequired:false, hint:"Former name", maxChars:50});
+var sprytextfield6 = new Spry.Widget.ValidationTextField("sprytextfield6", "integer", {isRequired:false, hint:"numbers only", maxChars:11});
 var spryselect2 = new Spry.Widget.ValidationSelect("spryselect2");
-var sprytextfield8 = new Spry.Widget.ValidationTextField("sprytextfield8");
+var sprytextfield8 = new Spry.Widget.ValidationTextField("sprytextfield8", "none", {minChars:1, maxChars:30, hint:"City"});
 var spryselect6 = new Spry.Widget.ValidationSelect("spryselect6");
 var spryselect7 = new Spry.Widget.ValidationSelect("spryselect7");
 var spryselect8 = new Spry.Widget.ValidationSelect("spryselect8");
 var spryselect9 = new Spry.Widget.ValidationSelect("spryselect9");
 var sprycheckbox1 = new Spry.Widget.ValidationCheckbox("sprycheckbox1", {isRequired:false, minSelections:0, maxSelections:1});
 var sprytextfield9 = new Spry.Widget.ValidationTextField("sprytextfield9", "social_security_number", {hint:"000-00-0000", useCharacterMasking:true});
-var sprytextfield10 = new Spry.Widget.ValidationTextField("sprytextfield10", "none", {hint:"Suffix", isRequired:false});
-var sprytextfield5 = new Spry.Widget.ValidationTextField("sprytextfield5", "none", {hint:"Full name", minChars:1});
-var sprytextfield11 = new Spry.Widget.ValidationTextField("sprytextfield11", "integer", {isRequired:false, hint:"numbers only"});
+var sprytextfield10 = new Spry.Widget.ValidationTextField("sprytextfield10", "none", {hint:"Suffix", isRequired:false, maxChars:15});
+var sprytextfield5 = new Spry.Widget.ValidationTextField("sprytextfield5", "none", {hint:"Full name", minChars:1, maxChars:40});
+var sprytextfield11 = new Spry.Widget.ValidationTextField("sprytextfield11", "integer", {isRequired:false, minChars:1, maxChars:11});
 var spryselect1 = new Spry.Widget.ValidationSelect("spryselect1", {isRequired:false});
-var sprytextarea2 = new Spry.Widget.ValidationTextarea("sprytextarea2", {minChars:10, maxChars:600, hint:"You must enter your description in this box!"});
+var sprytextarea2 = new Spry.Widget.ValidationTextarea("sprytextarea2", {minChars:10, maxChars:400, hint:"You must enter your description in this box!"});
+var sprytextfield12 = new Spry.Widget.ValidationTextField("sprytextfield12", "none", {minChars:1, maxChars:40, hint:"Street"});
+var sprytextfield7 = new Spry.Widget.ValidationTextField("sprytextfield7", "date", {hint:"mm/dd/yyyy", useCharacterMasking:true, format:"mm/dd/yyyy"});
 </script>
 </body>
 </html>

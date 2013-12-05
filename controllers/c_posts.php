@@ -21,7 +21,7 @@ class posts_controller extends base_controller {
         # Render template
         echo $this->template;
 
-    }
+    	}
 
     public function p_add() {
 
@@ -39,38 +39,34 @@ class posts_controller extends base_controller {
         DB::instance(DB_NAME)->insert('719B', $_POST);
 
         # Redirect to second page
-        Router::redirect('/posts/add2');
+        Router::redirect('/posts/p_add2');
 
-    }
+    	}
 	
-	public function add2() {
+	public function add2($record_id) {
 
-        # Setup view
-		$this->template->content = View::instance('v_posts_form_2');
-		
-        $this->template->title   = "Application";
+        # Passing the arguement to the view
+       $this->template->content->record_id = $record_id;
+	
+		$this->template->title   = "Application page 2";
 
         # Render template
         echo $this->template;
 
-    }
+    	}
 
     public function p_add2() {
-
-        # Associate this post with this user
-        $_POST['user_id']  = $this->user->user_id;
-
 		
-		unset($_POST['submit']);
+		$record_id = $_POST['record_id'];
+		unset($_POST['record_id']); 
 
-        # Insert
-        # Note we didn't have to sanitize any of the $_POST data because we're using the insert method which does it for us
-        DB::instance(DB_NAME)->insert('719B', $_POST);
+        # Update record with page 2 content
+       	DB::instance(DB_NAME)->update('719B', $_POST, "WHERE 719b_id = ".$record_id);
 
         # Redirect to second page
-        Router::redirect('/posts/uploads');
+        Router::redirect('/posts/uploads');		
 
-    }
+    	}
 	
 	 public function upload() {
 
@@ -81,39 +77,39 @@ class posts_controller extends base_controller {
         # Render template
         echo $this->template;
 
-   }
+   		}
    
    	public function p_upload() {
     
-		if ($_FILES['upload']['error'] == 0)
-        {
-            # upload an image
-            $uploads = Upload::upload($_FILES, "/uploads/", array("JPG", "JPEG", "jpg", "jpeg", "gif", "GIF", "png", "PNG", "doc", "pdf", "docx"), $this->user->user_id);
-
-            if($uploads == 'Invalid file type.') {
+		if ($_FILES['upload']['error'] == 0) {
             
-			# return an error
-                Router::redirect("/posts/uploads/error"); 
+		# upload an image
+        $upload = Upload::upload($_FILES, "/uploads/", array("JPG", "JPEG", "jpg", "jpeg", "gif", "GIF", "png", "PNG", "doc", "pdf", "docx"), $this->user->user_id);
+
+          if($upload == 'Invalid file type.') {
+            
+		# return an error
+        Router::redirect("/posts/uploads/error"); 
             }
-            else {
+        else {
             
-			# process the upload
-                $data = Array("upload" => $uploads);
-                DB::instance(DB_NAME)->update("users", $data, "WHERE user_id = ".$this->user->user_id);
+		# process the upload
+        $data = Array("upload" => $upload);
+        DB::instance(DB_NAME)->update("users", $data, "WHERE user_id = ".$this->user->user_id);
 
-                # resize the image
-                $imgObj = new Image($_SERVER["DOCUMENT_ROOT"] . '/uploads/' . $uploads);
-                $imgObj->resize(100,100, "crop");
-                $imgObj->save_image($_SERVER["DOCUMENT_ROOT"] . '/uploads/' . $uploads); 
+        # resize the image
+        $imgObj = new Image($_SERVER["DOCUMENT_ROOT"] . '/uploads/' . $upload);
+        $imgObj->resize(125,125, "crop");
+        $imgObj->save_image($_SERVER["DOCUMENT_ROOT"] . '/uploads/' . $upload); 
             }
         }
         else
         {
-            # return an error
-            Router::redirect("/posts/uploads/error");  
+        # return an error
+        Router::redirect("/posts/uploads/error");  
         }
 
         # Redirect back to the profile page
         router::redirect('/users/posts/completed'); 
-    }  
+    	}  
 }

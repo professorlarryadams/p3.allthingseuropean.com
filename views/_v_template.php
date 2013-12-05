@@ -10,25 +10,24 @@
                                                                                                                  
         <!-- Controller Specific JS -->
         
-         <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         
 		<?php if(isset($client_files_head)) echo $client_files_head; ?>
 </head>
 
 <body>
 
-<div class="container">
+<div class="container_12">
 
-<div class="header">
-  <img src="../images/header-1.png" width="960" height="202" alt="image"></div>
+	<div class="header"><img src="../images/header-1.png"  alt="image">
+    
+    </div>
   
   <div class="menu">
-  
       
        		<li><a href='/'>Home</a></li>
                                 
              <?php if($user): ?>
-             	<li><a href='/posts/add' target="_blank">Form</a></li>
+             	<li><a href='/posts/add'>Form</a></li>
                 <li><a href='/posts/upload'>Upload Documents</a></li>
              	<li><a href='/users/profile'>Profile</a></li>
              	<li><a href='/users/logout'>Logout</a></li>
@@ -51,8 +50,7 @@
         <?php if(isset($content)) echo $content; ?>
 
     	<?php if(isset($client_files_body)) echo $client_files_body; ?>
-
-    	           
+        
         
         <br />
   </div>

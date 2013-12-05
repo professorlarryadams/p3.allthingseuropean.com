@@ -1,73 +1,72 @@
 <?php
-class users_controller extends base_controller {
+	class users_controller extends base_controller {
 
         /*-------------------------------------------------------------------------------------------------
         
         -------------------------------------------------------------------------------------------------*/
-    public function __construct() {
+    	public function __construct() {
     
-            # Make sure the base controller construct gets called
+        # Makke ure the base controller construct gets called
                 parent::__construct();
-    } 
+    	} 
 
 	
-	public function index() {
+		public function index() {
         $this->template->content = View::instance('v_index_index');
-    }
+    	}
 
         /*-------------------------------------------------------------------------------------------------
         Display a form so users can sign up        
         -------------------------------------------------------------------------------------------------*/
-    public function signup() {
+    	public function signup() {
        
-       # Set up the view
-       $this->template->content = View::instance('v_users_signup');
+       	# Set up the view
+       	$this->template->content = View::instance('v_users_signup');
        
-       # Render the view
-       echo $this->template;
+       	# Render the view
+       	echo $this->template;
        
-    }
+    	}
     
     
-    /*-------------------------------------------------------------------------------------------------
-    Process the sign up form
-    -------------------------------------------------------------------------------------------------*/
-    public function p_signup() {
+    	/*-------------------------------------------------------------------------------------------------
+    	Process the sign up form
+    	-------------------------------------------------------------------------------------------------*/
+    	public function p_signup() {
 		
-			# Prevent SQL injection attacks by sanitizing the data the user entered in the form
-			$_POST = DB::instance(DB_NAME)->sanitize($_POST);
+		# Prevent SQL injection attacks by sanitizing the data the user entered in the form
+		$_POST = DB::instance(DB_NAME)->sanitize($_POST);
 
-			# Now, build the query using the sanitized data
-			$q = "SELECT token
+		# Now, build the query using the sanitized data
+		$q = "SELECT token
    			 	FROM users
     			WHERE email = '".$_POST['email']."'
-    			AND password = '".$_POST['password']."'
-    		";
+    			AND password = '".$_POST['password']."'";
 
-			$token = DB::instance(DB_NAME)->select_field($q);
+		$token = DB::instance(DB_NAME)->select_field($q);
                         
-            # Mark the time
-            $_POST['created']  = Time::now();
+        # Mark the time
+        $_POST['created']  = Time::now();
             
-            # Hash password
-            $_POST['password'] = sha1(PASSWORD_SALT.$_POST['password']);
+        # Hash password
+        $_POST['password'] = sha1(PASSWORD_SALT.$_POST['password']);
             
-            # Create a hashed token
-            $_POST['token']    = sha1(TOKEN_SALT.$_POST['email'].Utils::generate_random_string());
+        # Create a hashed token
+        $_POST['token']    = sha1(TOKEN_SALT.$_POST['email'].Utils::generate_random_string());
             
-            # Insert the new user    
-            DB::instance(DB_NAME)->insert_row('users', $_POST);
+        # Insert the new user    
+        DB::instance(DB_NAME)->insert_row('users', $_POST);
             
-            # Send them to the login page
+        #Route them to the login page
             Router::redirect('/users/login');
             
-    }
+    	}
 
 
         /*-------------------------------------------------------------------------------------------------
         Display a form so users can login
         -------------------------------------------------------------------------------------------------*/
-    public function login($error = NULL, $success = NULL) {
+    	public function login($error = NULL, $success = NULL) {
         
         # Setup view
         $this->template->content = View::instance('v_users_login');
@@ -80,14 +79,14 @@ class users_controller extends base_controller {
         # Render template
         echo $this->template;
 
-    }
+    	}
     
     
-    /*-------------------------------------------------------------------------------------------------
-    Process the login form
-    -------------------------------------------------------------------------------------------------*/
+    	/*-------------------------------------------------------------------------------------------------
+    	Process the login form
+    	-------------------------------------------------------------------------------------------------*/
     
-	public function p_login() {
+		public function p_login() {
 
         # Sanitize the user entered data to prevent any funny-business (re: SQL Injection Attacks)
         $_POST = DB::instance(DB_NAME)->sanitize($_POST);
@@ -108,7 +107,7 @@ class users_controller extends base_controller {
         if(!$token) {
 
             # Send them back to the login page with an error message
-            Router::redirect("/users/login/?error=true"); 
+            Router::redirect("/users/login/error"); 
 
         # But if we did, login succeeded! 
         } 
@@ -129,17 +128,15 @@ class users_controller extends base_controller {
             # Send them to the main page - or whever you want them to go
             Router::redirect("/");
 
-        }
+        	}
 
-    }
-       
-  
+    	}
+
 
         /*-------------------------------------------------------------------------------------------------
-        No view needed here, they just goto /users/logout, it logs them out and sends them
-        back to the homepage.        
+        Logout        
         -------------------------------------------------------------------------------------------------*/
-    public function logout() {
+    	public function logout() {
 
     	# Generate and save a new token for next login
     	$new_token = sha1(TOKEN_SALT.$this->user->email.Utils::generate_random_string());
@@ -157,28 +154,28 @@ class users_controller extends base_controller {
     	# Send them back to the main index.
     	Router::redirect("/");
 
-	}
+		}
 
         /*-------------------------------------------------------------------------------------------------
-        
+        Profile
         -------------------------------------------------------------------------------------------------*/
-    public function profile($user_name = NULL) {
+    	public function profile($user_name = NULL) {
                 
-                # Only logged in users are allowed...
-                if(!$this->user) {
-                        die('Members only. <a href="/users/login">Login</a>');
-                }
+        # Only logged in users are allowed...
+        if(!$this->user) {
+                 die('Members only. <a href="/users/login">Login</a>');
+         }
                 
-                # Set up the View
-                $this->template->content = View::instance('v_users_profile');
+         # Set up the View
+         $this->template->content = View::instance('v_users_profile');
                 $this->template->title   = "Profile";
                                 
-                # Pass the data to the View
-                $this->template->content->user_name = $user_name;
+         # Pass the data to the View
+         $this->template->content->user_name = $user_name;
                 
-                # Display the view
-                echo $this->template;
+         # Display the view
+         echo $this->template;
                                 
-    }
+    	}
 
 } # end of the class

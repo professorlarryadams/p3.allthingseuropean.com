@@ -325,9 +325,9 @@ application or taking any action against my Merchant Mariner’s Credential. Aut
               </td>
 	        </tr> 
    		    
-        <tr>
-            	
-   		      <td  colspan="7" style="background-color: #000;"><div class="centered">
+        <tr>	
+   		      <td  colspan="2" style="background-color: #000;"><div class="centered">
+               <input type="hidden" name="record_id" value="<?=$record_id?>">
               	<input type="reset" id="reset" value="Reset"> 
 	            <input type="submit" id="print" value="Print">
 	            <input type="submit" id="submit" value="Submit"></div></td>
