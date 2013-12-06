@@ -39,29 +39,29 @@ class posts_controller extends base_controller {
         DB::instance(DB_NAME)->insert('719B', $_POST);
 
         # Redirect to second page
-        Router::redirect('/posts/p_add2');
+        Router::redirect('/posts/p_add2'.$record_id);
 
     	}
 	
 	public function add2($record_id) {
-
-       # Passing the arguement to the view
+	  
+	   # Passing the arguement to the view
        $this->template->content->record_id = $record_id;
 	
-		$this->template->title   = "Application page 2";
+	   $this->template->title   = "Application page 2";
 
         # Render template
         echo $this->template;
 
     	}
 
-    public function p_add2($record_id) {
+    public function p_add2() {
 		
 		$record_id = $_POST['record_id'];
 		unset($_POST['record_id']); 
 
         # Update record with page 2 content
-       	DB::instance(DB_NAME)->update('719B', $_POST, 'WHERE 719b_id = '.$record_id);
+       DB::instance(DB_NAME)->update('719B', $_POST, 'WHERE 719b_id = '.$record_id);
 
         # Redirect to second page
         Router::redirect('/posts/uploads');		
