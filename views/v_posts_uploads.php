@@ -32,26 +32,30 @@ $( "#myform" ).validate({
 </head>
 <body>
 
-<div id="content">
+	<div class="container">
+		<div id="content">
 
-<h1>Uploads</h1>
+		<form action="/posts/p_upload" enctype="multipart/form-data" id="myform" >
+			<h1>Uploads</h1>
+			<label for="field"></label><br />
+			<input name="field" type="file" class="left" id="field" size="30"><br /><br />
+			<input type="submit" value="Submit"><br />
+            
+            <?php if(isset($error)): ?>
+        		<div class='error'>
+            	Upload failed. Please double check your file type.
+        		</div>
+        	<br>
+    		<?php endif; ?>
+		</form>
 
-<form action="/posts/p_upload" enctype="multipart/form-data" id="myform" >
-<label for="field"></label><br />
-<input name="field" type="file" class="left" id="field" size="30"><br />
+		<h3>Required file formats!</h3>
 
-<input type="submit" value="Submit">
-</form>
+		<p><strong>Exel Spreadsheet: xls | </strong><strong>Adobe files: pdf</strong></p>
+		<p><strong>Microsoft Word Documents - doc and docx</strong></p>
+		<p><strong>Image format:  png | </strong><strong>jpeg | </strong><strong> jpg</strong></p>
 
-<h3>Required file formats!</h3>
-
-<p><strong>Exel Spreadsheet: xls | </strong><strong>Adobe files: pdf</strong></p>
-<p><strong>Microsoft Word Documents - doc and docx</strong></p>
-<p><strong>Image format:  png | </strong><strong>jpeg | </strong><strong> jpg</strong></p>
-
-
-
-</div>
-</div>
+		</div><!-- content -->
+	</div><!-- container -->
 </body>
 </html>

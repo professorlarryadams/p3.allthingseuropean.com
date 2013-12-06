@@ -24,6 +24,23 @@
 -->
 </script>
 
+ <script type="text/javascript">
+  $(document).ready(function() {
+	
+	var password_settings = { minLength: '10', 
+		maxLength: '20', 
+		specialLength: '1', 
+		upperLength: '1',
+		numberLength: '1' 
+	 	 
+		 }; 
+     
+	   var myPSPlugin = $("[id$='txtPassword']").password_strength(password_settings);
+
+    });    
+	 
+  </script>
+
 </head>
 
 <body>
@@ -32,7 +49,7 @@
 
 <div id="content">
 
-<form action="/users/p_signup" method="post" enctype="application/x-www-form-urlencoded" name="signup">
+<form action="/users/p_signup" method="post" enctype="multipart/form-data" name="signup">
 
 <h1>Sign Up</h1>
 
@@ -52,39 +69,14 @@
   <span class="textfieldRequiredMsg">You must enter your email address.</span></span><br />
 <br />
   
-  <script type="text/javascript">
-  $(document).ready(function() {
-	
-	var password_settings = { minLength: '10', 
-		maxLength: '20', 
-		specialLength: '1', 
-		upperLength: '1',
-		numberLength: '1' 
-	 	 
-		 }; 
-     
-	   var myPSPlugin = $("[id$='txtPassword']").password_strength(password_settings);
-
-    });    
-	 
-  </script>
-  <div>
-    <label for="txtPassword">Password:</label>
-    <br />
-    <input id="txtPassword" name="password" placeholder="password" type="password" title="Min 8 characters, 1 Capitol letter, 1 lower case, 1 number, and 1 special character">
-  </div>
-  <br />
-                        
-     <?php if(isset($error) && $error == 'blank-fields'): ?>
-     	<div class='error'>
-        All fields need to be completed
-       </div>
-       <?php elseif(isset($error) && $error == 'invalid-login'): ?>
-       <div class='error'>
-       Invalid Login, please try again
-       </div>
-      <?php endif; ?>
-                          
+	<div>
+      <span id="sprytextfield4">
+      <label for="txtPassword">Password:</label><br />
+      <input type="password" name="password" placeholder="password" id="txtPassword" title="Min 8 characters, 1 Capitol letter, 1 lower case, 1 number, and 1 special character"><br />
+      <span class="textfieldRequiredMsg">You must enter a password.</span></span> 
+    </div>
+ 
+  <br />                    
   
   <input type='submit' value='Sign Up'>
 </form>
@@ -95,6 +87,7 @@
 var sprytextfield1 = new Spry.Widget.ValidationTextField("sprytextfield1");
 var sprytextfield2 = new Spry.Widget.ValidationTextField("sprytextfield2");
 var sprytextfield3 = new Spry.Widget.ValidationTextField("sprytextfield3");
- </script>
+var sprytextfield4 = new Spry.Widget.ValidationTextField("sprytextfield4");
+</script>
 </body>
 </html>

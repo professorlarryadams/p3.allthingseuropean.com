@@ -24,23 +24,22 @@
   
   <div class="menu">
       
-       		<li><a href='/'>Home</a></li>
+       		<li><a href='/'>Home |</a></li>
                                 
              <?php if($user): ?>
-             	<li><a href='/posts/add'>Form</a></li>
-                <li><a href='/posts/upload'>Upload Documents</a></li>
-             	<li><a href='/users/profile'>Profile</a></li>
-             	<li><a href='/users/logout'>Logout</a></li>
+             	<li><a href='/posts/add'>Form |</a></li>
+                <li><a href='/posts/upload'>Upload Files |</a></li>
+             	<li><a href='/users/profile'>Profile |</a></li>
+             	<li><a href='/users/logout'>Logout |</a></li>
              	<?php else: ?>
-             	<li><a href='/users/signup'>Sign Up</a></li>
-             	<li><a href='/users/login'>Log In</a></li>
+             	<li><a href='/users/signup'>Sign Up |</a></li>
+             	<li><a href='/users/login'>Log In |</a></li>
              <?php endif; ?>
-      
- 
   </div>
   
   <div class="content" style="text-align:center">
-  <h2>Secure Online Forms</h2><br />
+  <h1>Secure Online Forms</h1>
+  <h2>Project 3 online forms that validates through Javascript and jquery to a database.</h2>
     
    		<!-- Page Content -->
         <?php if($user): ?>
@@ -50,8 +49,6 @@
         <?php if(isset($content)) echo $content; ?>
 
     	<?php if(isset($client_files_body)) echo $client_files_body; ?>
-        
-        
         <br />
   </div>
   

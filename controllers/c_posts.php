@@ -39,7 +39,7 @@ class posts_controller extends base_controller {
         DB::instance(DB_NAME)->insert('719B', $_POST);
 
         # Redirect to second page
-        Router::redirect('/posts/add2');
+        Router::redirect('/posts/p_add2');
 
     	}
 	
@@ -80,36 +80,20 @@ class posts_controller extends base_controller {
    		}
    
    	public function p_upload() {
-    
-		if ($_FILES['upload']['error'] == 0) {
-            
-		# upload an image
-        $upload = Upload::upload($_FILES, "/uploads/", array("JPG", "JPEG", "jpg", "jpeg", "gif", "GIF", "png", "PNG", "doc", "pdf", "docx"), $this->user->user_id);
+		
+		# Upload files
+        Upload::upload($_FILES, "/uploads/", array("JPG", "JPEG", "jpg", "jpeg", "png", "PNG", "doc", "docx", "pdf"), $user_id);
+        
+        # original filename (i.e. picture.jpg)
+	    $filename = $_FILES['upload']['name']; 
+        
+		# filename format extension
+		$extension = substr($filename, strrpos($filename, '.'));
+		 
+        $upload = $user_id.$extension;
 
-          if($upload == 'Invalid file type.') {
+       # Send them back to the profile page
+        Router::redirect("/users/profile"); 	
             
-		# return an error
-        Router::redirect("/posts/uploads/error"); 
-            }
-        else {
-            
-		# process the upload
-        $data = Array("upload" => $upload);
-        DB::instance(DB_NAME)->update("users", $data, "WHERE user_id = ".$this->user->user_id);
-
-        # resize the image
-        $imgObj = new Image($_SERVER["DOCUMENT_ROOT"] . '/uploads/' . $upload);
-        $imgObj->resize(125,125, "crop");
-        $imgObj->save_image($_SERVER["DOCUMENT_ROOT"] . '/uploads/' . $upload); 
-            }
-        }
-        else
-        {
-        # return an error
-        Router::redirect("/posts/uploads/error");  
-        }
-
-        # Redirect back to the profile page
-        router::redirect('/users/posts/completed'); 
-    	}  
+	}
 }

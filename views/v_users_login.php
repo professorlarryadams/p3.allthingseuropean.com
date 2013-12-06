@@ -38,12 +38,12 @@
 <span class="textfieldRequiredMsg">You must enter your password.</span><br /></span>
 
 <br /> 
-	<?php if(isset($_GET['error'])): ?>
-      	<div class='message error'>
-           Login failed. Please check your email and password.
-      	</div>
-      	<br />
-      <?php endif; ?>
+	<?php if(isset($error)): ?>
+        <div class='error'>
+            Login failed. Please double check your email and password.
+        </div>
+        <br>
+    <?php endif; ?>
 
 
 <input type='Submit' value='Log in'>  
