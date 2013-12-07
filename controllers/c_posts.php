@@ -35,20 +35,19 @@ class posts_controller extends base_controller {
 		unset($_POST['submit']);
 
         # Insert
-        # Note we didn't have to sanitize any of the $_POST data because we're using the insert method which does it for us
-        DB::instance(DB_NAME)->insert('719B', $_POST);
+		$record_id = DB::instance(DB_NAME)->insert('719B', $_POST);
 
         # Redirect to second page
-        Router::redirect('/posts/p_add2'.$record_id);
+        Router::redirect('/posts/add2/'.$record_id);
 
     	}
 	
 	public function add2($record_id) {
 	  
 	   # Passing the arguement to the view
-       $this->template->content->record_id = $record_id;
-	
-	   $this->template->title   = "Application page 2";
+	   $this->template->content = View::instance('v_posts_form_2');
+	   $this->template->content->record_id = $record_id;
+	   $this->template->title = "Application page 2";
 
         # Render template
         echo $this->template;
@@ -57,43 +56,38 @@ class posts_controller extends base_controller {
 
     public function p_add2() {
 		
+			
 		$record_id = $_POST['record_id'];
-		unset($_POST['record_id']); 
-
-        # Update record with page 2 content
-       DB::instance(DB_NAME)->update('719B', $_POST, 'WHERE 719b_id = '.$record_id);
-
-        # Redirect to second page
-        Router::redirect('/posts/uploads');		
+		unset($_POST['record_id']);
+		
+		DB::instance(DB_NAME)->update('719B', $_POST, 'WHERE 719b_id = '.$record_id); 
+		
+		# Send them back to uploads page
+        Router::redirect("/posts/uploads"); 
 
     	}
-	
-	 public function upload() {
-
-        # Setup view
-        $this->template->content = View::instance('v_posts_uploads');
-        $this->template->title   = "Upload Documents";
-
-        # Render template
-        echo $this->template;
-
-   		}
-   
-   	public function p_upload() {
 		
-		# Upload files
-        Upload::upload($_FILES, "/uploads/", array("JPG", "JPEG", "jpg", "jpeg", "png", "PNG", "doc", "docx", "pdf"), $user_id);
-        
-        # original filename (i.e. picture.jpg)
-	    $filename = $_FILES['upload']['name']; 
-        
-		# filename format extension
-		$extension = substr($filename, strrpos($filename, '.'));
-		 
-        $upload = $user_id.$extension;
-
-       # Send them back to the profile page
-        Router::redirect("/users/profile"); 	
-            
-	}
+		public function uploads($record_id) {
+			
+			$this->template->content = View::instance('v_posts_uploads');
+			$this->template->content->record_id = $record_id;
+			$this->template->title = "Uploading Files:";
+			
+			#Render this template
+			echo $this->template;
+			
+		}
+		
+		public function p_uploads () {
+			
+			$record_id = $_POST['record_id'];
+			unset($_POST['record_id']);
+                
+            # Upload files
+            DB::instance(DB_NAME)->update('719B', $_POST, 'WHERE 719b_id = '.$record_id);
+ 
+       		# Send to Homepage
+        	Router::redirect('/'); 
+    } 
+			
 }

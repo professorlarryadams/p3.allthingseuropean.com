@@ -1,61 +1,42 @@
 <!doctype html>
 <html>
 <head>
-<meta charset="utf-8">
-<title>Uploading your files</title>
+<meta charset="UTF-8">
 
-<!-- CSS -->
-<link rel="stylesheet" href="http://jquery.bassistance.de/validate/demo/site-demos.css">
-<link rel="stylesheet" href="../css/box.css">
-
-<!-- JS -->
-
-<script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-<script src="http://jquery.bassistance.de/validate/jquery.validate.js"></script>
-<script src="http://jquery.bassistance.de/validate/additional-methods.js"></script>
-<script>
-
-jQuery.validator.setDefaults({
-  debug: true,
-  success: "valid"
-});
-$( "#myform" ).validate({
-  rules: {
-    field: {
-      required: true,
-      extension: "xls|pdf|doc|docx|png|jpeg|jpg"
-    }
-  }
-});
-</script>
- 
+<title>Upload Files</title>
 </head>
+
 <body>
 
-	<div class="container">
-		<div id="content">
+<div class="container">
 
-		<form action="/posts/p_upload" enctype="multipart/form-data" id="myform" >
-			<h1>Uploads</h1>
-			<label for="field"></label><br />
-			<input name="field" type="file" class="left" id="field" size="30"><br /><br />
-			<input type="submit" value="Submit"><br />
-            
-            <?php if(isset($error)): ?>
-        		<div class='error'>
-            	Upload failed. Please double check your file type.
-        		</div>
-        	<br>
-    		<?php endif; ?>
-		</form>
+	<div id="content">
+<form enctype="multipart/form-data" action="/posts/uploads" method="post">
+ 
+ <input type="hidden"name="MAX_FILE_SIZE" value="524288">
 
-		<h3>Required file formats!</h3>
+ <fieldset><legend>File format: (docs, docx, pdf, jpeg, jog, png, xls, txt)</legend><br /><br />
 
-		<p><strong>Exel Spreadsheet: xls | </strong><strong>Adobe files: pdf</strong></p>
-		<p><strong>Microsoft Word Documents - doc and docx</strong></p>
-		<p><strong>Image format:  png | </strong><strong>jpeg | </strong><strong> jpg</strong></p>
+ <div><strong>TWIC Receipt:</strong></div>
+ <div>
+  <input type="file" name="twic_upload" title="Upload your TWIC Receipt"/>
+ </div><br />
 
-		</div><!-- content -->
-	</div><!-- container -->
-</body>
-</html>
+ <div><b>Conviction Statement:</b></div>
+ <div> <input type="file" name="conviction_upload"  title="Upload your conviction statement" statement />
+ </div><br />
+ 
+  <div><strong>Sea Service:</strong></div>
+  <div>
+    <input type="file"name="seaservice_upload" title="Upload your proof of sea service" />
+  </div><br />
+
+ </fieldset>
+ <div align="center"><input type="submit"
+name="submit" value="Submit" /></div>
+ <input type="hidden" name="submitted"value="TRUE" />
+ </form>
+ 
+ </div>
+ </div></body>
+ </html>

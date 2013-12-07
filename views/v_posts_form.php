@@ -7,31 +7,23 @@
 
 	<!-- CSS -->
 
-		<link href="../css/main.css" rel="stylesheet" type="text/css">
-        <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
         <link rel="stylesheet" href="../css/validationEngine.jquery.css" type="text/css"/>
 		<link rel="stylesheet" href="../css/template.css" type="text/css"/>
-		<link href="../js/SpryAssets/SpryValidationTextField.css" rel="stylesheet" type="text/css">
-		<link href="../js/SpryAssets/SpryValidationSelect.css" rel="stylesheet" type="text/css">
-		<link href="../js/SpryAssets/SpryValidationTextarea.css" rel="stylesheet" type="text/css">
-		<link href="../js/SpryAssets/SpryValidationCheckbox.css" rel="stylesheet" type="text/css">
-       
-      
+		<link href="/js/SpryAssets/SpryValidationTextField.css" rel="stylesheet" type="text/css">
+		<link href="/js/SpryAssets/SpryValidationSelect.css" rel="stylesheet" type="text/css">
+		<link href="/js/SpryAssets/SpryValidationTextarea.css" rel="stylesheet" type="text/css">
+		<link href="/js/SpryAssets/SpryValidationCheckbox.css" rel="stylesheet" type="text/css">
 		
 	<!-- JS -->
-
-		<script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
-		<script src="http://code.jquery.com/jquery-1.9.1.js"></script>
-		<script src="../js/SpryAssets/SpryValidationTextField.js" type="text/javascript"></script>
-		<script src="../js/SpryAssets/SpryValidationSelect.js" type="text/javascript"></script>
-		<script src="../js/SpryAssets/SpryValidationTextarea.js" type="text/javascript"></script>
-		<script src="../js/SpryAssets/SpryValidationCheckbox.js" type="text/javascript"></script>
-        <script src="../js/jquery-1.6.min.js" type="text/javascript"></script>
-		<script src="../js/languages/jquery.validationEngine-en.js" type="text/javascript" charset="utf-8"></script>
-		<script src="../js/jquery.validationEngine.js" type="text/javascript" charset="utf-8"></script>
-        <script type='text/javascript' src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
-		<script type='text/javascript' src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/additional-methods.js"></script>
-         <script type='text/javascript' src='http://code.jquery.com/jquery-1.8.3.js'></script>
+		
+		<script src="/js/SpryAssets/SpryValidationTextField.js" type="text/javascript"></script>
+		<script src="/js/SpryAssets/SpryValidationSelect.js" type="text/javascript"></script>
+		<script src="/js/SpryAssets/SpryValidationTextarea.js" type="text/javascript"></script>
+		<script src="/js/SpryAssets/SpryValidationCheckbox.js" type="text/javascript"></script>
+        <script src="/js/jquery-1.6.min.js" type="text/javascript"></script>
+		<script src="/js/languages/jquery.validationEngine-en.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/js/jquery.validationEngine.js" type="text/javascript" charset="utf-8"></script>
+        
 		
 		<script>
   $(function() {
@@ -43,9 +35,7 @@
   $(function() {
     $( "#datepicker" ).datepicker();
   });
-  </script>
-  
-  
+  </script> 
   
 <script>
 $(document).ready(function () {
@@ -239,7 +229,7 @@ $(document).ready(function () {
              <strong> 3. Date of Birth </strong><br />
              <span id="sprytextfield7">
              <label for="datepicker"></label>
-             <input type="text" name="birthdate" id="datepicker"><br />
+             <input type="text" name="birthdate" id="datepicker" title="Please enter your birthdate"><br />
              <span class="textfieldRequiredMsg">A value is required.</span><span class="textfieldInvalidFormatMsg">Invalid format.</span></span> </div></td>
 	    </tr>
    		    

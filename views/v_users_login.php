@@ -7,12 +7,12 @@
 <title>Login Page</title>
 
 <!-- CSS -->
-<link href="../css/box.css" rel="stylesheet" type="text/css">
-<link href="../css/SpryValidationTextField.css" rel="stylesheet" type="text/css">
+
+<link href="/css/SpryValidationTextField.css" rel="stylesheet" type="text/css">
 
 <!-- JS -->
 
-<script src="../js/SpryAssets/SpryValidationTextField.js" type="text/javascript"></script>
+<script src="/js/SpryAssets/SpryValidationTextField.js" type="text/javascript"></script>
 
 </head>
 
@@ -34,17 +34,19 @@
 <span id="sprytextfield2">
 <label for="password">Password:</label>
 <br />
-<input type="password" placeholder="Password" name="password" id="password"><br />
-<span class="textfieldRequiredMsg">You must enter your password.</span><br /></span>
+<input type="password" placeholder="Password" name="password" id="password">
+<br />
+<span class="textfieldRequiredMsg">You must enter your password.</span><br />
+<span class="textfieldMinCharsMsg">Minimum 10 number of characters not met.</span><span class="textfieldMaxCharsMsg">Exceeded maximum number of characters.</span></span>
 
 <br /> 
-	<?php if(isset($error)): ?>
+	
+ <?php if(isset($error)): ?>
         <div class='error'>
             Login failed. Please double check your email and password.
         </div>
         <br>
     <?php endif; ?>
-
 
 <input type='Submit' value='Log in'>  
 
@@ -55,7 +57,7 @@
 
 <script type="text/javascript">
 var sprytextfield1 = new Spry.Widget.ValidationTextField("sprytextfield1", "email");
-var sprytextfield2 = new Spry.Widget.ValidationTextField("sprytextfield2", "none");
+var sprytextfield2 = new Spry.Widget.ValidationTextField("sprytextfield2", "none", {minChars:10});
 </script>
 
 </body>

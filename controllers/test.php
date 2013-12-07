@@ -32,31 +32,41 @@
     	/*-------------------------------------------------------------------------------------------------
     	Process the sign up form
     	-------------------------------------------------------------------------------------------------*/
-    	
-		public function p_signup() {
-
-    	# More data we want stored with the user
-    	$_POST['created']  = Time::now();
-    	$_POST['modified'] = Time::now();
-
-    	# Encrypt the password  
-    	$_POST['password'] = sha1(PASSWORD_SALT.$_POST['password']);            
-
-    	# Create an encrypted token via their email address and a random string
-    	$_POST['token'] = sha1(TOKEN_SALT.$_POST['email'].Utils::generate_random_string()); 
-	
-    	# Insert this user into the database 
-    	$user_id = DB::instance(DB_NAME)->insert("users", $_POST);
-
-    	# Send them back to the login page with an error message
-        Router::redirect("/users/login");
-
-		}
+    	public function p_signup() {
 		
-   /*-------------------------------------------------------------------------------------------------
+		# Prevent SQL injection attacks by sanitizing the data the user entered in the form
+		$_POST = DB::instance(DB_NAME)->sanitize($_POST);
+
+		# Now, build the query using the sanitized data
+		$q = "SELECT token
+   			 	FROM users
+    			WHERE email = '".$_POST['email']."'
+    			AND password = '".$_POST['password']."'";
+
+		$token = DB::instance(DB_NAME)->select_field($q);
+                        
+        # Mark the time
+        $_POST['created']  = Time::now();
+            
+        # Hash password
+        $_POST['password'] = sha1(PASSWORD_SALT.$_POST['password']);
+            
+        # Create a hashed token
+        $_POST['token']    = sha1(TOKEN_SALT.$_POST['email'].Utils::generate_random_string());
+            
+        # Insert the new user    
+        DB::instance(DB_NAME)->insert_row('users', $_POST);
+            
+        #Route them to the login page
+            Router::redirect('/users/login');
+            
+    	}
+
+
+        /*-------------------------------------------------------------------------------------------------
         Display a form so users can login
         -------------------------------------------------------------------------------------------------*/
-    	public function login($error = NULL) {
+    	public function login($error = NULL, $success = NULL) {
         
         # Setup view
         $this->template->content = View::instance('v_users_login');
@@ -64,11 +74,13 @@
 
         # Pass data to the view
         $this->template->content->error = $error;
+        $this->template->content->success = $success;
 
         # Render template
         echo $this->template;
 
     	}
+    
     
     	/*-------------------------------------------------------------------------------------------------
     	Process the login form
@@ -94,8 +106,8 @@
         # If we didn't find a matching token in the database, it means login failed
         if(!$token) {
 
-        # Send them back to the login page with an error message
-        Router::redirect("/users/login/error"); 
+            # Send them back to the login page with an error message
+            Router::redirect("/users/login/error"); 
 
         # But if we did, login succeeded! 
         } 
