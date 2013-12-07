@@ -12,6 +12,8 @@
 
 	<div id="content">
 <form enctype="multipart/form-data" action="/posts/uploads" method="post">
+
+<p>P4 Secure Uploads not a part of p3!</p>
  
  <input type="hidden"name="MAX_FILE_SIZE" value="524288">
 

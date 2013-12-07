@@ -11,6 +11,8 @@
 <link href="/js/SpryAssets/SpryValidationSelect.css" rel="stylesheet" type="text/css">
 <link href="/js/SpryAssets/SpryValidationTextarea.css" rel="stylesheet" type="text/css">
 <link href="/js/SpryAssets/SpryValidationCheckbox.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css">
+ 
 
  
 
@@ -20,7 +22,24 @@
 <script src="/js/SpryAssets/SpryValidationSelect.js" type="text/javascript"></script>
 <script src="/js/SpryAssets/SpryValidationTextarea.js" type="text/javascript"></script>
 <script src="/js/SpryAssets/SpryValidationCheckbox.js" type="text/javascript"></script>
+ <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
+  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>
 
+<script>
+// just for the demos, avoids form submit
+jQuery.validator.setDefaults({
+  debug: true,
+  success: "valid"
+});
+$( "#myform" ).validate({
+  rules: {
+    field: {
+      required: true,
+      extension: "xls|csv|doc|docx|pdf"
+    }
+  }
+});
+</script>
 
 <script>
   $(function() {
@@ -44,7 +63,7 @@
 
 	<div class="content">
   
-  <form name="719B" method="post" action="/posts/p_add2">
+  <form name="719B" id="myform" method="post" action="/posts/p_add2">
    		  
    <table>
             <tr>
@@ -274,7 +293,7 @@ application or taking any action against my Merchant Mariner’s Credential. Aut
             </tr>
    		   
    		    <tr>
-            <td>8e. <input name="processing_authorize" type="checkbox" value="y" title="3rd Party will act on your behalf"> Act on my behalf in all matters pertaining to the processing of my current USCG credential application.
+            <td>8e. <input name="processing_authorize" type="checkbox" value="yes" title="3rd Party will act on your behalf"> Act on my behalf in all matters pertaining to the processing of my current USCG credential application.
             </td>
             <td>
               <span id="sprytextfield7">
